@@ -6,3 +6,4 @@ This is super awesome game created by few people
 Tomáš
 David
 Vojtěch
+Radim
