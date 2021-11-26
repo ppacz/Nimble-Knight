@@ -13,4 +13,4 @@
 **Game might be uploaded on itch.io .. link will be here as soon as we finish our game.**
 
 ### How are we creating it
-**We are usign Unity 2D engine with C#. **
+**We are usign Unity 2D engine with C#.**
