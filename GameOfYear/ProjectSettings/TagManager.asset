@@ -44,6 +44,9 @@ TagManager:
   - name: ground
     uniqueID: 4221068929
     locked: 0
+  - name: Colission objects
+    uniqueID: 1458809819
+    locked: 0
   - name: entities
     uniqueID: 4016633853
     locked: 0
