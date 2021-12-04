@@ -2212,10 +2212,11 @@ GameObject:
   - component: {fileID: 908239692}
   - component: {fileID: 908239691}
   - component: {fileID: 908239693}
-  - component: {fileID: 908239694}
   - component: {fileID: 908239696}
   - component: {fileID: 908239698}
+  - component: {fileID: 908239694}
   - component: {fileID: 908239695}
+  - component: {fileID: 908239697}
   m_Layer: 6
   m_Name: MainHero
   m_TagString: Untagged
@@ -2380,6 +2381,21 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &908239697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908239690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107304936daf39f4b964e708dfd270d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPtext: {fileID: 1322505823}
+  alive: 1
+  maxHealth: 20
 --- !u!61 &908239698
 BoxCollider2D:
   m_ObjectHideFlags: 0

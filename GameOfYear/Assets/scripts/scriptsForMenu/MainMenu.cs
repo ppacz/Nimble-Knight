@@ -36,4 +36,9 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
