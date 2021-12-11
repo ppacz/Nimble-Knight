@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
   - GUI
+  - enemies
   layers:
   - Default
   - TransparentFX
