@@ -28,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<HpManager>().getsDamaged(dmg);
+            enemy.GetComponent<EnemyHpManager>().getsDamaged(dmg);
         }
     }
 
