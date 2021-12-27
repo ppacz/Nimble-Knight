@@ -5,9 +5,13 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    private Transform target;
+    private GameObject player;
+    private Rigidbody2D target;
     public float speed = 10f;
     public float nextWaypointDistance = 3f;
+    float distanceFromPlayer;
+    public float attackSpeed = 2;
+    double timer;
 
     Path path;
     int currnetWaypoint = 0;
@@ -19,7 +23,9 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        timer = 0;
+        player = PlayerManager.instance.player;
+        target = player.GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -30,7 +36,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(seeker.IsDone())
         seeker.StartPath(rb.position, target.position, OnPathComplete);
-        Debug.Log("is called");
+        Debug.Log(distanceFromPlayer);
     }
     void OnPathComplete(Path p)
     {
@@ -44,26 +50,42 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null) return;
-        
-        if (currnetWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
+        timer += 0.2;
+        getDistance();
+        if (path == null) return;
+        if (distanceFromPlayer > 3) { 
+            if (currnetWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+            Vector2 direction = ((Vector2)path.vectorPath[currnetWaypoint] - rb.position).normalized;
+            Vector2 force = direction * speed * Time.deltaTime;
+
+            rb.AddForce(force);
+
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currnetWaypoint]);
+            if (distance < nextWaypointDistance)
+            {
+                currnetWaypoint++;
+            }
         }
         else
         {
-            reachedEndOfPath = false;
+            if (timer > attackSpeed)
+            {
+                player.GetComponent<PlayerHP>().Damaged(1);
+                timer = 0;
+            }
         }
-        Vector2 direction = ((Vector2)path.vectorPath[currnetWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+    }
 
-        rb.AddForce(force);
-
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currnetWaypoint]);
-        if (distance < nextWaypointDistance)
-        {
-            currnetWaypoint++;
-        }
+    void getDistance()
+    {
+        distanceFromPlayer = Mathf.Sqrt((rb.position.x - player.transform.position.x) * (rb.position.x - player.transform.position.x) + (rb.position.x - player.transform.position.x) * (rb.position.x - player.transform.position.x));
     }
 }
