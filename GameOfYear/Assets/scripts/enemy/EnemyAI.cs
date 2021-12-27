@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public float speed = 10f;
     public float nextWaypointDistance = 3f;
 
@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = PlayerManager.instance.player.transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -29,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(seeker.IsDone())
         seeker.StartPath(rb.position, target.position, OnPathComplete);
+        Debug.Log("is called");
     }
     void OnPathComplete(Path p)
     {

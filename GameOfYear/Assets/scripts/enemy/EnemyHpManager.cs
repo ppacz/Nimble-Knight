@@ -6,10 +6,11 @@ public class EnemyHpManager : MonoBehaviour
 {
     public int maxHealt = 100;
     private int currentHealth;
-    public GameObject counter;
     private Counter count;
+    private GameObject counter;
     void Start()
     {
+        counter = CounterManager.instance.counter;
         currentHealth = maxHealt;
         count = counter.GetComponent<Counter>();
     }
