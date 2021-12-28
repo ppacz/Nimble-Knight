@@ -13,12 +13,10 @@ public class PlayerHP : MonoBehaviour
     public Slider slider;
     private int currentHealth;
     private bool wasDamaged;
-    private bool boughtUpgrade;
 
     // Update is called once per frame
     void Start()
     {
-        boughtUpgrade = true;
         wasDamaged = true;
         slider.maxValue = maxHealth;
         currentHealth = maxHealth;

@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     private GameObject center;
     private GameObject player;
     private Transform target;
+    private float range = 10f;
     public float speed = 10f;
     public float nextWaypointDistance = 3f;
     float distanceFromPlayer;
@@ -38,6 +39,7 @@ public class EnemyAI : MonoBehaviour
     }
     void UpdatePath()
     {
+        //updates path every .5 seconds
         if(seeker.IsDone())
         seeker.StartPath(rb.position, target.position, OnPathComplete);
         Debug.Log(distanceFromPlayer);
@@ -57,7 +59,7 @@ public class EnemyAI : MonoBehaviour
         timer += 0.2;
         getDistance();
         if (path == null) return;
-        if (distanceFromPlayer > 3) { 
+        if (distanceFromPlayer > 3 && distanceFromPlayer < range) { 
             if (currnetWaypoint >= path.vectorPath.Count)
             {
                 reachedEndOfPath = true;
@@ -77,7 +79,7 @@ public class EnemyAI : MonoBehaviour
             {
                 currnetWaypoint++;
             }
-        }
+        }else if (distanceFromPlayer > range) return;
         else
         {
             if (timer > attackSpeed)
@@ -88,8 +90,8 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void getDistance()
+    private void getDistance()
     {
-        distanceFromPlayer = Mathf.Sqrt((rb.position.x - center.transform.position.x) * (rb.position.x - center.transform.position.x) + (rb.position.x - center.transform.position.x) * (rb.position.x - center.transform.position.x));
+        distanceFromPlayer = Vector3.Distance(rb.position, target.position);   
     }
 }
