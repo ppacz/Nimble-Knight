@@ -5,13 +5,16 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    public int dmg = 1;
+    private GameObject center;
     private GameObject player;
-    private Rigidbody2D target;
+    private Transform target;
     public float speed = 10f;
     public float nextWaypointDistance = 3f;
     float distanceFromPlayer;
     public float attackSpeed = 2;
     double timer;
+    
 
     Path path;
     int currnetWaypoint = 0;
@@ -25,7 +28,8 @@ public class EnemyAI : MonoBehaviour
     {
         timer = 0;
         player = PlayerManager.instance.player;
-        target = player.GetComponent<Rigidbody2D>();
+        center = PlayerManager.instance.center;
+        target = center.GetComponent<Transform>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -78,7 +82,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (timer > attackSpeed)
             {
-                player.GetComponent<PlayerHP>().Damaged(1);
+                player.GetComponent<PlayerHP>().Damaged(dmg);
                 timer = 0;
             }
         }
@@ -86,6 +90,6 @@ public class EnemyAI : MonoBehaviour
 
     void getDistance()
     {
-        distanceFromPlayer = Mathf.Sqrt((rb.position.x - player.transform.position.x) * (rb.position.x - player.transform.position.x) + (rb.position.x - player.transform.position.x) * (rb.position.x - player.transform.position.x));
+        distanceFromPlayer = Mathf.Sqrt((rb.position.x - center.transform.position.x) * (rb.position.x - center.transform.position.x) + (rb.position.x - center.transform.position.x) * (rb.position.x - center.transform.position.x));
     }
 }
