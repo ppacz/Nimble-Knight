@@ -4158,6 +4158,7 @@ MonoBehaviour:
   HPtext: {fileID: 1471899466}
   alive: 1
   maxHealth: 110
+  slider: {fileID: 1060128479}
 --- !u!114 &2025142898
 MonoBehaviour:
   m_ObjectHideFlags: 0

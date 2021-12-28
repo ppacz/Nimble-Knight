@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
     public TMP_Text HPtext;
     public bool alive = true;
     public int maxHealth;
+    public Slider slider;
     private int currentHealth;
     private bool wasDamaged;
+    private bool boughtUpgrade;
 
     // Update is called once per frame
     void Start()
     {
+        boughtUpgrade = true;
         wasDamaged = true;
-        currentHealth = maxHealth;   
+        slider.maxValue = maxHealth;
+        currentHealth = maxHealth;
+
     }
     void Update()
     {
@@ -24,8 +30,9 @@ public class PlayerHP : MonoBehaviour
         {
             HPtext.text = "HP " + currentHealth + "/" + maxHealth;
             wasDamaged = false;
+            slider.value = currentHealth;
         }
-
+        
         if (!alive) SceneManager.LoadScene("Death");
     }
 
