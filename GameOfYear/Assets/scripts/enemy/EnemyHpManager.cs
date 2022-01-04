@@ -9,7 +9,7 @@ public class EnemyHpManager : MonoBehaviour
     private Counter count;
     private GameObject counter;
     void Start()
-    {
+    {   
         counter = CounterManager.instance.counter;
         currentHealth = maxHealt;
         count = counter.GetComponent<Counter>();
@@ -30,6 +30,7 @@ public class EnemyHpManager : MonoBehaviour
         Debug.Log("Enemy died!");
         count.Died();
     }
-
+    //counter needs to be changed, needs to add funtion that will take care of correct counter
+    //that will be in spawner
     
 }
