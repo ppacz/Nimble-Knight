@@ -5233,11 +5233,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025142894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2feab9a4b117d4b9514b0cd835962b, type: 3}
+  m_Script: {fileID: 11500000, guid: 75a9b003cf172c04dba40bd75a2a1473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
-  rb: {fileID: 2025142895}
+  dashLayerMash:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2025142897
 MonoBehaviour:
   m_ObjectHideFlags: 0
