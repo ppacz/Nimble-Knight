@@ -11,8 +11,7 @@ public class PlayerCombat : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        //checks if player pressed mouse button or space
+    {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             Attack();
@@ -23,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         //TODO add player attack animation
-        //damages enemies in circle
+        //damage enemies
 
         Collider2D[] hitEnemies =Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -33,7 +32,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()//should show range of weapon with wired sphere
+    void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);

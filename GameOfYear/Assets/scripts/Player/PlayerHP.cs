@@ -7,36 +7,34 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    public TMP_Text HPtext; //Reference to text in slider
+    public TMP_Text HPtext;
     public bool alive = true;
     public int maxHealth;
-    public Slider slider; //Reference to slider
+    public Slider slider;
     private int currentHealth;
     private bool wasDamaged;
 
     // Update is called once per frame
     void Start()
-    {   
-        //changes values to ones that are set in editor
+    {
         wasDamaged = true;
         slider.maxValue = maxHealth;
         currentHealth = maxHealth;
 
     }
     void Update()
-    {   
-        //updates slider and health
+    {
         if (wasDamaged)
         {
             HPtext.text = "HP " + currentHealth + "/" + maxHealth;
             wasDamaged = false;
             slider.value = currentHealth;
         }
-        //shows death scene
+        
         if (!alive) SceneManager.LoadScene("Death");
     }
 
-    public void Damaged(int dmg)//Decreses health
+    public void Damaged(int dmg)
     {
         currentHealth -= dmg;
         if (currentHealth < 0)

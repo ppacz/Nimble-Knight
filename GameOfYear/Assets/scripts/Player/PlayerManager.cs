@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //creates instance of this script so objects in him can be reffered in prefabs
     #region singleton
     public static PlayerManager instance;
 
@@ -13,9 +12,8 @@ public class PlayerManager : MonoBehaviour
         instance = this;
     }
     #endregion
-    //player its self
+
     public GameObject player;
-    //players center
     public GameObject center;
 
 }

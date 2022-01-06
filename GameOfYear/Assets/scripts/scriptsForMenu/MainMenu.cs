@@ -10,19 +10,18 @@ public class MainMenu : MonoBehaviour
     public Slider slider;
     public Text progressText;
 
-        
-    public void Quit()//quits game
-    {
+
+    public void Quit(){
         Debug.Log("Quit");
         Application.Quit();
     }
 
-    public void PlayGame()//start asynch. loading of first level
+    public void PlayGame()
     {
         StartCoroutine(LoadAsynch());
     }
 
-    private IEnumerator LoadAsynch()//loads first level
+    private IEnumerator LoadAsynch()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
@@ -37,6 +36,7 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
     }
+
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);

@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHpManager : MonoBehaviour
+public class EnemyHP : MonoBehaviour
 {
     public int maxHealt = 100;
     private int currentHealth;
-    private Counter count;
-    private GameObject counter;
     void Start()
     {
-        counter = CounterManager.instance.counter;
         currentHealth = maxHealt;
-        count = counter.GetComponent<Counter>();
     }
 
     public void getsDamaged(int dmg)
@@ -25,11 +21,8 @@ public class EnemyHpManager : MonoBehaviour
         }
     }
 
-    void Death() 
+    void Death()
     {
         Debug.Log("Enemy died!");
-        count.Died();
     }
-
-    
 }
