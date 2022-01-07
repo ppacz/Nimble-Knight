@@ -42,7 +42,6 @@ public class EnemyAI : MonoBehaviour
         //updates path every .5 seconds
         if(seeker.IsDone())
         seeker.StartPath(rb.position, target.position, OnPathComplete);
-        Debug.Log(distanceFromPlayer);
     }
     void OnPathComplete(Path p)
     {
