@@ -9,9 +9,10 @@ public class PlayerControler : MonoBehaviour
     private const float MOVEMENTSPEED = 10f ;
     private Rigidbody2D rigidBody2D;
     private Vector3 moveDirection;
+    private Vector3 dashPosition;
     private float moveY, moveX;
     private bool isDashing = false;
-    private float dashAmount = 5f;
+    private float dashAmount;
 
     private void Awake()
     {   
@@ -52,13 +53,17 @@ public class PlayerControler : MonoBehaviour
 
         if (isDashing)
         {
-            Vector3 dashPosition = transform.position + moveDirection * dashAmount;
-
-            RaycastHit2D rayCastHit2D = Physics2D.Raycast(transform.position, moveDirection, dashAmount, dashLayerMash);
-            if (rayCastHit2D.collider != null)
-            {
-                dashPosition = rayCastHit2D.point;
+            dashAmount = 5f;
+            Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
+            bool hit = Physics2D.CircleCast(centerOfHero, .5f, moveDirection, dashAmount, dashLayerMash);
+            // Casting circular rayCast, only returns bool if it hit something in specified layer, might be used to varify result;
+            while (hit) {
+                dashAmount -= .1f;
+                hit = Physics2D.CircleCast(centerOfHero, .5f, moveDirection, dashAmount, dashLayerMash);
+                if (dashAmount <= 0) break;
             }
+            Debug.Log(centerOfHero);
+            dashPosition = transform.position + moveDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
             isDashing = false;
         }
