@@ -66,6 +66,7 @@ public class PlayerControler : MonoBehaviour
             dashPosition = transform.position + moveDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
             isDashing = false;
+            // function than will be created in mana/stamina controler "action(amountOfStamina)"
         }
 
     }
