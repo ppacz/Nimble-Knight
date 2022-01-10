@@ -37,7 +37,7 @@ public class PlayerHP : MonoBehaviour
     public void Damaged(int dmg)
     {
         currentHealth -= dmg;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             alive = false;
         }
