@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask dashLayerMash;
+    private LayerMask dashLayerMask;
     private const float MOVEMENTSPEED = 10f ;
     private Rigidbody2D rigidBody2D;
     private Vector3 moveDirection;
@@ -14,11 +14,9 @@ public class PlayerControler : MonoBehaviour
     private float moveY, moveX;
     private bool isDashing = false;
     private float dashAmount;
-    public GameObject pickUpArea;
 
     private void Awake()
     {   
-
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -42,10 +40,6 @@ public class PlayerControler : MonoBehaviour
         {
             moveX = 1f;
         }
-        if (Input.GetKey(KeyCode.F))
-        {
-            pickUp();
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -66,11 +60,11 @@ public class PlayerControler : MonoBehaviour
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
-            bool hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMash);
+            bool hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMask);
             // Casting circular rayCast, only returns bool if it hit something in specified layer, might be used to varify result;
             while (hit) {
                 dashAmount -= .1f;
-                hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMash);
+                hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMask);
                 if (dashAmount <= 0) break;
             }
             Debug.Log(centerOfHero);
@@ -79,15 +73,6 @@ public class PlayerControler : MonoBehaviour
             
         }
         isDashing = false;
-
-    }
-
-    
-    private void pickUp()
-    {
-        //detect pickable items
-        //pickup item if there is space in inventory
-        //destroy item if picked up
 
     }
 }
