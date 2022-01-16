@@ -10,12 +10,16 @@ public class PlayerControler : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private Vector3 moveDirection;
     private Vector3 dashPosition;
+    private Vector3 lastDirection;
     private float moveY, moveX;
     private bool isDashing = false;
     private float dashAmount;
+    [SerializeField]
+    private GameObject player;
 
     private void Awake()
     {   
+
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -50,24 +54,28 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         rigidBody2D.velocity = moveDirection * MOVEMENTSPEED;
-
-        if (isDashing)
+        if(moveDirection!=new Vector3(0, 0))
+        {
+            lastDirection = moveDirection;
+        }
+        //checks if there is enough Stamina to perform dash
+        if (isDashing&& PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
-            bool hit = Physics2D.CircleCast(centerOfHero, .5f, moveDirection, dashAmount, dashLayerMash);
+            bool hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMash);
             // Casting circular rayCast, only returns bool if it hit something in specified layer, might be used to varify result;
             while (hit) {
                 dashAmount -= .1f;
-                hit = Physics2D.CircleCast(centerOfHero, .5f, moveDirection, dashAmount, dashLayerMash);
+                hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMash);
                 if (dashAmount <= 0) break;
             }
             Debug.Log(centerOfHero);
-            dashPosition = transform.position + moveDirection * dashAmount;
+            dashPosition = transform.position + lastDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
-            isDashing = false;
-            // function than will be created in mana/stamina controler "action(amountOfStamina)"
+            
         }
+        isDashing = false;
 
     }
 }

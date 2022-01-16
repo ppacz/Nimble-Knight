@@ -26,7 +26,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (wasDamaged)
         {
-            HPtext.text = "HP " + currentHealth + "/" + maxHealth;
+            HPtext.text = currentHealth + "/" + maxHealth;
             wasDamaged = false;
             slider.value = currentHealth;
         }

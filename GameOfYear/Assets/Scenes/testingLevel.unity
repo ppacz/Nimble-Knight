@@ -434,36 +434,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 297590381}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &303580159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 303580160}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &303580160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303580159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.08, z: -7.5894017}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &365256490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8655184348247126856, guid: e25f3997845ea80448162815d1c0a775,
@@ -1139,7 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1151,7 +1121,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1165,7 +1135,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 28932976}
   m_FillRect: {fileID: 28932975}
   m_HandleRect: {fileID: 0}
@@ -3986,7 +3956,7 @@ GameObject:
   - component: {fileID: 1397942162}
   - component: {fileID: 1397942163}
   m_Layer: 5
-  m_Name: MP
+  m_Name: Stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4027,7 +3997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4035,11 +4005,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.5736413, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.5764706, b: 1, a: 1}
-    m_PressedColor: {r: 0, g: 0.5764706, b: 1, a: 1}
-    m_SelectedColor: {r: 0, g: 0.5764706, b: 1, a: 1}
-    m_DisabledColor: {r: 0, g: 0.5764706, b: 1, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 0.60229635, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.6039216, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.6039216, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6039216, b: 0, a: 1}
+    m_DisabledColor: {r: 1, g: 0.6039216, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4053,7 +4023,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1580988431}
   m_FillRect: {fileID: 1580988430}
   m_HandleRect: {fileID: 0}
@@ -5415,6 +5385,21 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
+--- !u!114 &2025142903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025142894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003ed29c2b391a147b7f26a3cdb08aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaText: {fileID: 1339943452}
+  maxStamina: 30
+  slider: {fileID: 1397942163}
 --- !u!1 &2031649731
 GameObject:
   m_ObjectHideFlags: 0
