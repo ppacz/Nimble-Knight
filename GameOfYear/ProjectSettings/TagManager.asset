@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GUI
   - enemies
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Entities
   - Enemy
-  - 
+  - PickUp
   - 
   - 
   - 
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: entities
     uniqueID: 4016633853
+    locked: 0
+  - name: PickUp
+    uniqueID: 3328190911
     locked: 0

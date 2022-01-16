@@ -14,8 +14,7 @@ public class PlayerControler : MonoBehaviour
     private float moveY, moveX;
     private bool isDashing = false;
     private float dashAmount;
-    [SerializeField]
-    private GameObject player;
+    public GameObject pickUpArea;
 
     private void Awake()
     {   
@@ -42,6 +41,10 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             moveX = 1f;
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
+            pickUp();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -76,6 +79,15 @@ public class PlayerControler : MonoBehaviour
             
         }
         isDashing = false;
+
+    }
+
+    
+    private void pickUp()
+    {
+        //detect pickable items
+        //pickup item if there is space in inventory
+        //destroy item if picked up
 
     }
 }

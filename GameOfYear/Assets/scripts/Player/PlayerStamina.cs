@@ -43,6 +43,7 @@ public class PlayerStamina : MonoBehaviour
     //updates text
     private void UpdateText() 
     {
+        slider.value = currentStamina;
         staminaText.text = (int)currentStamina + "/" + maxStamina;
     }
 }
