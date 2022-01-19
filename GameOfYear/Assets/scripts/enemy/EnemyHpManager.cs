@@ -29,6 +29,7 @@ public class EnemyHpManager : MonoBehaviour
     {
         Debug.Log("Enemy died!");
         count.Died();
+        Destroy(gameObject);
     }
 
     
