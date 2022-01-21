@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
     {
         time -= Time.deltaTime;
         if (time <= 0)
-        {
+        {   
             time = timeBetweenSpawns;
             while (enemies.Count != amountOfEnemies)
             {

@@ -9,8 +9,10 @@ public class EnemyHpManager : MonoBehaviour
     private Counter count;
     private GameObject counter;
     private Spawner spawner;
+    public bool isAlive;
     void Start()
     {
+        isAlive = true;
         counter = CounterManager.instance.counter;
         currentHealth = maxHealt;
         spawner = Spawner.instance;
@@ -32,6 +34,7 @@ public class EnemyHpManager : MonoBehaviour
         Debug.Log("Enemy died!");
         count.Died();
         Destroy(gameObject);
+        isAlive = false;
         spawner.GetComponent<Spawner>().deleteEnemy(gameObject);
     }
 
