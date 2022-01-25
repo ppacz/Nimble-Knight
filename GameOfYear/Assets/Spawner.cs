@@ -14,11 +14,13 @@ public class Spawner : MonoBehaviour
     private float timeBetweenSpawns;
     [SerializeField]
     private LayerMask nonSpawnableLayers;//layers where enemy shouldnt be able to spawn at all
-    
+    private float time;
     //private List<GameObject> enemies = new List<GameObject>();
     //private float time;
     private List<List<GameObject>> enemiesList = new List<List<GameObject>>();
-    private Transform[] spawnPoints;
+    private Transform[] spawnPointsGettigs;
+    private List<Transform> spawnPoints = new List<Transform>();
+
     #region singleton
     public static Spawner instance;
 
@@ -31,13 +33,24 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        //time = timeBetweenSpawns;
-        spawnPoints = gameObject.GetComponentsInChildren<Transform>(false);
-        for(int i = 0; i < spawnPoints.Length; i++)
+        time = timeBetweenSpawns;
+        spawnPointsGettigs = gameObject.GetComponentsInChildren<Transform>();
+        for(int i = 1; i < spawnPointsGettigs.Length; i++)
+        {
+            spawnPoints.Add(spawnPointsGettigs[i]);
+        }
+        for(int i = 0; i < spawnPoints.Count; i++)
         {
             enemiesList.Add(new List<GameObject>());
         }
-        InvokeRepeating("Spawning", 5f, timeBetweenSpawns);
+    }
+    private void FixedUpdate()
+    {
+        time -= Time.deltaTime;
+        if (time <= timeBetweenSpawns) { 
+            Spawning();
+            time = timeBetweenSpawns;
+        }
     }
     /*
     // this one is one that works with single spanwer

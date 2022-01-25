@@ -954,7 +954,7 @@ MonoBehaviour:
   timeBetweenSpawns: 10
   nonSpawnableLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 136
 --- !u!4 &266506339
 Transform:
   m_ObjectHideFlags: 0
