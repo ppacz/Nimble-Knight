@@ -18,7 +18,6 @@ public class Spawner : MonoBehaviour
     //private List<GameObject> enemies = new List<GameObject>();
     //private float time;
     private List<List<GameObject>> enemiesList = new List<List<GameObject>>();
-    private Transform[] spawnPointsGettigs;
     private List<Transform> spawnPoints = new List<Transform>();
 
     #region singleton
@@ -34,7 +33,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         time = timeBetweenSpawns;
-        spawnPointsGettigs = gameObject.GetComponentsInChildren<Transform>();
+        Transform[] spawnPointsGettigs = gameObject.GetComponentsInChildren<Transform>();
         for(int i = 1; i < spawnPointsGettigs.Length; i++)
         {
             spawnPoints.Add(spawnPointsGettigs[i]);

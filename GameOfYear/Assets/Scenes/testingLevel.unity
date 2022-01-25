@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 266506339}
   - component: {fileID: 266506338}
   m_Layer: 0
-  m_Name: Spawners (included for now)
+  m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
