@@ -23,6 +23,7 @@ public class EnemyHP : MonoBehaviour
     void Death()
     {
         Debug.Log(nameOfEnemy+" died!");
-        Destroy(gameObject);
+        Spawner.instance.deleteEnemy(gameObject);
+        if(gameObject)  Destroy(gameObject);
     }
 }
