@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
@@ -11,7 +9,7 @@ public class EnemyHP : MonoBehaviour
     {
         currentHealth = maxHealt;
     }
-
+    
     public void getsDamaged(int dmg)
     {
         currentHealth -= dmg;
