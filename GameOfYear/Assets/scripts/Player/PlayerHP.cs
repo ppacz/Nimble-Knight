@@ -42,4 +42,10 @@ public class PlayerHP : MonoBehaviour
         wasDamaged = true;
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        wasDamaged = true;
+    }
+
 }
