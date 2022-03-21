@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca5db358a2de114e841532f444a33d4, type: 3}
   m_Name: Small Stamina
   m_EditorClassIdentifier: 
-  amount: 25
+  amount: 10

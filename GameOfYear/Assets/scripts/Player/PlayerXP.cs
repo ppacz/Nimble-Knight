@@ -50,7 +50,7 @@ public class PlayerXP : MonoBehaviour
     {
         _xpBar.minValue = 0;
         _xpBar.maxValue = _xpToNextLevel;
-        _xpBar.value = _currentXP;
+        _xpBar.value = _xpToNextLevel-_currentXP;
         _levelText.text = "Level: " + _level;
         _xpText.text = _currentXP + "/" + _xpToNextLevel;
     }

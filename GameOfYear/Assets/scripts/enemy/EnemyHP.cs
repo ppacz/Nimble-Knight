@@ -26,9 +26,9 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
-        PlayerManager.instance.GetComponent<PlayerXP>().addExp(_XP);
+        PlayerManager.instance.player.GetComponent<PlayerXP>().addExp(_XP);
         Debug.Log(_nameOfEnemy+" died!");
         Spawner.instance.deleteEnemy(gameObject);
         if(gameObject)  Destroy(gameObject);

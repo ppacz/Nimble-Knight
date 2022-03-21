@@ -19,11 +19,7 @@ public class PlayerStamina : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentStamina < maxStamina)
-        {
             AddStamina(.02f);
-            UpdateText();
-        }
     }
     //Returns boolean bcs of condition that is in PlayerControler script that takes care of stamina usage
     public bool useAbility(float consumption)
@@ -31,7 +27,7 @@ public class PlayerStamina : MonoBehaviour
         if (currentStamina >= consumption)
         {   
             currentStamina -= consumption;
-            UpdateText();
+            UpdateUI();
             return true;
         }else{
             Debug.Log("Not enough stamina");
@@ -41,7 +37,7 @@ public class PlayerStamina : MonoBehaviour
     }
 
     //updates text
-    private void UpdateText() 
+    private void UpdateUI() 
     {
         slider.value = currentStamina;
         staminaText.text = (int)currentStamina + "/" + maxStamina;
@@ -49,7 +45,7 @@ public class PlayerStamina : MonoBehaviour
 
     public void AddStamina(float stamina)
     {
-        if (currentStamina + stamina > maxStamina)
+        if (currentStamina + stamina >= maxStamina)
         {
             currentStamina = maxStamina;
         }
@@ -57,5 +53,6 @@ public class PlayerStamina : MonoBehaviour
         {
             currentStamina += stamina;
         }
+        UpdateUI();
     }
 }
