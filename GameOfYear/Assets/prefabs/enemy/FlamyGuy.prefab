@@ -138,9 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   drawGizmos: 1
-  detailedGizmos: 0
+  detailedGizmos: 1
   startEndModifier:
-    addPoints: 0
+    addPoints: 1
     exactStartPoint: 3
     exactEndPoint: 3
     useRaycasting: 0
@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealt: 100
-  nameOfEnemy: FlameGuy
+  _nameOfEnemy: FlameGuy
+  _XP: 5
 --- !u!61 &-5764557635068512599
 BoxCollider2D:
   m_ObjectHideFlags: 0
