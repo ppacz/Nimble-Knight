@@ -44,7 +44,14 @@ public class PlayerHP : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
+        if (currentHealth + amount >= maxHealth) 
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += amount;
+        }
         wasDamaged = true;
     }
 

@@ -21,7 +21,7 @@ public class PlayerStamina : MonoBehaviour
     {
         if(currentStamina < maxStamina)
         {
-            currentStamina += .2f;
+            AddStamina(.02f);
             UpdateText();
         }
     }
@@ -45,5 +45,17 @@ public class PlayerStamina : MonoBehaviour
     {
         slider.value = currentStamina;
         staminaText.text = (int)currentStamina + "/" + maxStamina;
+    }
+
+    public void AddStamina(float stamina)
+    {
+        if (currentStamina + stamina > maxStamina)
+        {
+            currentStamina = maxStamina;
+        }
+        else
+        {
+            currentStamina += stamina;
+        }
     }
 }
