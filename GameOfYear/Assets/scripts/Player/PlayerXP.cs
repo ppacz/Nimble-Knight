@@ -23,6 +23,8 @@ public class PlayerXP : MonoBehaviour
     [SerializeField]
     private TMP_Text _levelText;
     [SerializeField]
+    private TMP_Text _unusedPoints;
+    [SerializeField]
     private Slider _xpBar;
     private void Start()
     {
@@ -54,5 +56,13 @@ public class PlayerXP : MonoBehaviour
         _xpBar.value = _xpToNextLevel-_currentXP;
         _levelText.text = "Level: " + _level;
         _xpText.text = _currentXP + "/" + _xpToNextLevel;
+        if (_skillPoints > 0)
+        {
+            _unusedPoints.text = "Unused points: " + _skillPoints;
+        }
+        else
+        {
+            _unusedPoints.text = "";
+        }
     }
 }
