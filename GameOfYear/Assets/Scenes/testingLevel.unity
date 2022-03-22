@@ -9252,7 +9252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentXP: 0
-  _xpToNextLevel: 10
+  _xpToNextLevel: 3
   _level: 1
   _xpMultiplier: 2
   _xpText: {fileID: 1757538375}

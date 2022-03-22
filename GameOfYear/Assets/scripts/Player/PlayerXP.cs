@@ -36,10 +36,10 @@ public class PlayerXP : MonoBehaviour
         _currentXP += value;
         if (_currentXP >= _xpToNextLevel) 
         {
-            _currentXP = 0;
+            _currentXP -= _xpToNextLevel ;
             _level += 1;
             _skillPoints += 1;
-            _xpToNextLevel = (int) _xpToNextLevel * _xpMultiplier;
+            _xpToNextLevel = (int) (_xpToNextLevel * _xpMultiplier);
             _xpMultiplier += .2f;
             
         }
