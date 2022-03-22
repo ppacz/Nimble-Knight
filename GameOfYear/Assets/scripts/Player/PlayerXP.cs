@@ -56,6 +56,7 @@ public class PlayerXP : MonoBehaviour
         _xpBar.value = _xpToNextLevel-_currentXP;
         _levelText.text = "Level: " + _level;
         _xpText.text = _currentXP + "/" + _xpToNextLevel;
+        //takes care of showing if there are any unused scripts
         if (_skillPoints > 0)
         {
             _unusedPoints.text = "Unused points: " + _skillPoints;
