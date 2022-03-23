@@ -55,7 +55,10 @@ public class PlayerXP : MonoBehaviour
         // bcs of UI need to be decresed not added
         _xpBar.value = _xpToNextLevel-_currentXP;
         _levelText.text = "Level: " + _level;
-        _xpText.text = _currentXP + "/" + _xpToNextLevel;
+        //pro vypis xp zbyvajicí
+        _xpText.text = "xp: "+_currentXP + "/" + _xpToNextLevel;
+        //pro vypis xp procentama
+        //_xpText.text = "xp: "+ Math.Round((_currentXP*100/_xpToNextLevel),2)+"%";
         //takes care of showing if there are any unused scripts
         if (_skillPoints > 0)
         {

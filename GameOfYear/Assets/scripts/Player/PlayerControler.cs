@@ -42,6 +42,7 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isDashing = true;
+            Dash();
         }
         moveDirection = new Vector3(moveX, moveY).normalized;
     }
@@ -54,13 +55,20 @@ public class PlayerControler : MonoBehaviour
             lastDirection = moveDirection;
         }
         //checks if there is enough Stamina to perform dash
-        if (isDashing&& PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
+        
+
+    }
+
+    private void Dash() 
+    {
+        if (PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
             bool hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMask);
             // Casting circular rayCast, only returns bool if it hit something in specified layer, might be used to varify result;
-            while (hit) {
+            while (hit)
+            {
                 dashAmount -= .1f;
                 hit = Physics2D.CircleCast(centerOfHero, .5f, lastDirection, dashAmount, dashLayerMask);
                 if (dashAmount <= 0) break;
@@ -68,9 +76,8 @@ public class PlayerControler : MonoBehaviour
             Debug.Log(centerOfHero);
             dashPosition = transform.position + lastDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
-            
+
         }
         isDashing = false;
-
     }
 }
