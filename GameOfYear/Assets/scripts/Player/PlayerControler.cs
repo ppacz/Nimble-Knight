@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
@@ -10,11 +11,12 @@ public class PlayerControler : MonoBehaviour
     private Vector3 dashPosition;
     private Vector3 lastDirection;
     private float moveY, moveX;
-    private bool isDashing = false;
     private float dashAmount;
+    private Dictionary<string,bool> Skills = new Dictionary<string, bool>();
 
-    private void Awake()
-    {   
+    private void Start()
+    {
+        Skills.Add("dash", false);
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -41,7 +43,6 @@ public class PlayerControler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isDashing = true;
             Dash();
         }
         moveDirection = new Vector3(moveX, moveY).normalized;
@@ -61,7 +62,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Dash() 
     {
-        if (PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
+        if (Skills["dash"]&&PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
@@ -76,8 +77,14 @@ public class PlayerControler : MonoBehaviour
             Debug.Log(centerOfHero);
             dashPosition = transform.position + lastDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
+            return;
 
         }
-        isDashing = false;
+        else
+        {
+            Skills["dash"] = true;
+            Debug.Log("Skill is not unlocked yet!");
+            return;
+        }
     }
 }
