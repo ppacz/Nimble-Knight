@@ -69,4 +69,20 @@ public class PlayerXP : MonoBehaviour
             _unusedPoints.text = "";
         }
     }
+
+    public bool useSkillPoint(int price) 
+    {
+        if (price > _skillPoints)
+        {
+            Debug.Log("Nedostatek skill pointu!!");
+            return false;
+        }
+        else
+        {
+            
+            _skillPoints -= price;
+            updateUI();
+            return true;
+        }
+    }
 }

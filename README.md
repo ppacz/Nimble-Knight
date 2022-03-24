@@ -1,16 +1,25 @@
-# Name of the game
+<br><br>
+<div align="center">
+  
+# Name Of The Game (still undecided lol)
+*Welcome! This is our school project.* 
+  
+<br><br>
 
-*this is our school project* 
-*We are trying to create 2d story based RPG with combat, weapon and mby magic system.. (idea is still in development)*
+### About this project <br>
+*We are creating a 2D, story-based RPG with combat, weapons, magic system etc.*
+<br><br><br>
 
-## *status*
-*We have started with basic movement without animations and camera movement*
-*We are kind of happy with our main menu and stuff around that..*
+### Status <br>
+*We have a working movement, basic attack system, enemy combat, HP / Energy system, XP system etc.
+Curently, we are working on sprites, proper game functionality, story line and much more.*
+<br><br><br>
 
-*need more images, maby some audio and tons of code...*
+### Where can you play it? <br>
+*That is still undecided, but it will be downloadable from this GitHub repo.*
+<br><br><br>
 
-## *Where can you play it?*
-*Game might be uploaded on itch.io .. link will be here as soon as we finish our game.*
+### What programs are we using? <br>
+*We are using Unity 2D engine with C# scripts.*
 
-## *How are we creating it*
-*We are usign Unity 2D engine with C#.*
+</div>

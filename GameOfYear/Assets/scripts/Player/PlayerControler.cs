@@ -12,11 +12,13 @@ public class PlayerControler : MonoBehaviour
     private Vector3 lastDirection;
     private float moveY, moveX;
     private float dashAmount;
-    private Dictionary<string,bool> Skills = new Dictionary<string, bool>();
+    private SkillUnlocking skillsSet;
+    
 
     private void Start()
     {
-        Skills.Add("dash", false);
+        skillsSet = gameObject.GetComponent<SkillUnlocking>();
+        skillsSet.setSkills("dash");
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -40,6 +42,10 @@ public class PlayerControler : MonoBehaviour
         {
             moveX = 1f;
         }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            UnlockSkillCommand("dash", 2);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -62,7 +68,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Dash() 
     {
-        if (Skills["dash"]&&PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
+        if (skillsSet.getState("dash")&&PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
@@ -81,9 +87,24 @@ public class PlayerControler : MonoBehaviour
 
         }
         else
-        {
-            Skills["dash"] = true;
+        {   
+
             Debug.Log("Skill is not unlocked yet!");
+            return;
+        }
+    }
+
+    private void UnlockSkillCommand(string skillName,int price)
+    {   
+        if (!skillsSet.getState(skillName)) { 
+            if (gameObject.GetComponent<PlayerXP>().useSkillPoint(price)) skillsSet.unlockSkill(skillName);
+            else Debug.Log("Není možné skill odemknout");
+            return;
+
+        }
+        else
+        {
+            Debug.Log("Skill je jiz zakoupen");
             return;
         }
     }
