@@ -12,7 +12,7 @@
 
 ### Status <br>
 *We have a working movement, basic attack system, enemy combat, HP / Energy system, XP system etc.
-Curently, we are working on sprites, proper game functionality, story line and much more. *
+Curently, we are working on sprites, proper game functionality, story line and much more.*
 <br><br><br>
 
 ### Where can you play it? <br>
