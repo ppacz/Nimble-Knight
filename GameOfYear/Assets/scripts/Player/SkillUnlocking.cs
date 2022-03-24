@@ -2,23 +2,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 class SkillUnlocking : MonoBehaviour
-{
-    private Dictionary<string, bool> Skills = new Dictionary<string, bool>();
+{   
+    [SerializeField]
+    private Dictionary<string, bool> _skills = new Dictionary<string, bool>();
 
-    public void Start()
+    public void setSkills(string skill)
     {
-        Skills.Add("dash", false);
-        Skills.Add("fireball", false);
+        _skills.Add(skill,false);
     }
 
-    public void unlockSkill(string name)
+    public void unlockSkill(string skill)
     {
-        Skills[name] = true;
+        _skills[skill] = true;
 
     }
 
-    public bool getState(string name)
+    public bool getState(string skill)
     {
-        return Skills[name];
+        return _skills[skill];
     }
+    
 }

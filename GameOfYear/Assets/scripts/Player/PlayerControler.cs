@@ -18,6 +18,7 @@ public class PlayerControler : MonoBehaviour
     private void Start()
     {
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
+        skillsSet.setSkills("dash");
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -41,7 +42,7 @@ public class PlayerControler : MonoBehaviour
         {
             moveX = 1f;
         }
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             UnlockSkillCommand("dash", 2);
         }
@@ -93,16 +94,18 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    private void UnlockSkillCommand(string name,int price)
-    {
-        if (!skillsSet.getState("name")) { 
-            if (gameObject.GetComponent<PlayerXP>().useSkillPoint(price)) skillsSet.unlockSkill(name);
+    private void UnlockSkillCommand(string skillName,int price)
+    {   
+        if (!skillsSet.getState(skillName)) { 
+            if (gameObject.GetComponent<PlayerXP>().useSkillPoint(price)) skillsSet.unlockSkill(skillName);
             else Debug.Log("Není možné skill odemknout");
+            return;
 
         }
         else
         {
             Debug.Log("Skill je jiz zakoupen");
+            return;
         }
     }
 }

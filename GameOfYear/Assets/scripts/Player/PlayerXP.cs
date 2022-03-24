@@ -79,8 +79,9 @@ public class PlayerXP : MonoBehaviour
         }
         else
         {
-            updateUI();
+            
             _skillPoints -= price;
+            updateUI();
             return true;
         }
     }
