@@ -52,8 +52,7 @@ public class PlayerXP : MonoBehaviour
     {
         _xpBar.minValue = 0;
         _xpBar.maxValue = _xpToNextLevel;
-        // bcs of UI need to be decresed not added
-        _xpBar.value = _xpToNextLevel-_currentXP;
+        _xpBar.value = _currentXP;
         _levelText.text = "Level: " + _level;
         //pro vypis xp zbyvajicí
         _xpText.text = "xp: "+_currentXP + "/" + _xpToNextLevel;
