@@ -61,9 +61,6 @@ public class PlayerControler : MonoBehaviour
         {
             lastDirection = moveDirection;
         }
-        //checks if there is enough Stamina to perform dash
-        
-
     }
 
     private void Dash() 
