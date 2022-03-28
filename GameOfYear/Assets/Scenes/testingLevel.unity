@@ -28892,6 +28892,7 @@ MonoBehaviour:
   dmg: 20
   _cam: {fileID: 1024746928}
   _centerTransform: {fileID: 2114393585}
+  LookingAt: right
 --- !u!50 &2041849142
 Rigidbody2D:
   serializedVersion: 4
