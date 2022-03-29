@@ -121,9 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
-  speed: 400
+  speed: 10
   nextWaypointDistance: 3
-  attackSpeed: 5
+  followRange: 10
+  attackSpeed: 2
+  range: 4
 --- !u!114 &376976949100392214
 MonoBehaviour:
   m_ObjectHideFlags: 0

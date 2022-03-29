@@ -3,29 +3,39 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-    public int dmg = 1;
+    [SerializeField]
+    [Range(1, 100)]
+    private int dmg;
+    [SerializeField]
+    [Range(50, 200)]
+    private float speed;
+    [SerializeField]
+    private float nextWaypointDistance = 3;
+    [SerializeField]
+    [Range(10, 20)]
+    private float followRange;
+    [SerializeField]
+    [Range(0.5f,5)]
+    private float attackSpeed;
+    [SerializeField]
+    [Range(4,8)]
+    private float range = 4;
+
     private GameObject center;
     private GameObject player;
     private Transform target;
-    private float range = 10f;
-    public float speed = 10f;
-    public float nextWaypointDistance = 3f;
-    float distanceFromPlayer;
-    public float attackSpeed = 2;
-    double timer;
-    
-
-    Path path;
-    int currnetWaypoint = 0;
-    bool reachedEndOfPath = false;
-
-    Seeker seeker;
-    Rigidbody2D rb;
+    private float distanceFromPlayer;
+    private double nextAttack;
+    private Path path;
+    private int currentWaypoint = 0;
+    private bool reachedEndOfPath = false;
+    private Seeker seeker;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
+        nextAttack = Time.time;
         player = PlayerManager.instance.player;
         center = PlayerManager.instance.center;
         target = center.GetComponent<Transform>();
@@ -46,18 +56,19 @@ public class EnemyAI : MonoBehaviour
         if (!p.error)
         {
             path = p;
-            currnetWaypoint = 0;
+            currentWaypoint = 0;
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += 0.2;
         getDistance();
         if (path == null) return;
-        if (distanceFromPlayer > 3 && distanceFromPlayer < range) { 
-            if (currnetWaypoint >= path.vectorPath.Count)
+        if (distanceFromPlayer > followRange) return;
+        else if (distanceFromPlayer > range && distanceFromPlayer < followRange)
+        {
+            if (currentWaypoint >= path.vectorPath.Count)
             {
                 reachedEndOfPath = true;
                 return;
@@ -66,23 +77,21 @@ public class EnemyAI : MonoBehaviour
             {
                 reachedEndOfPath = false;
             }
-            Vector2 direction = ((Vector2)path.vectorPath[currnetWaypoint] - rb.position).normalized;
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
             Vector2 force = direction * speed * Time.deltaTime;
-
             rb.AddForce(force);
-
-            float distance = Vector2.Distance(rb.position, path.vectorPath[currnetWaypoint]);
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)
             {
-                currnetWaypoint++;
+                currentWaypoint++;
             }
-        }else if (distanceFromPlayer > range) return;
+        }
         else
         {
-            if (timer > attackSpeed)
+            if (nextAttack <= Time.time)
             {
                 player.GetComponent<PlayerHP>().Damaged(dmg);
-                timer = 0;
+                nextAttack = Time.time + attackSpeed;
             }
         }
     }
