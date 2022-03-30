@@ -10,6 +10,7 @@ public class EnemyHP : MonoBehaviour
     [Range(3,50)]
     private int _XP;
 
+    public bool isAlive = true;
     private int currentHealth;
     void Start()
     {
@@ -23,15 +24,13 @@ public class EnemyHP : MonoBehaviour
         if (currentHealth <= 0)
         {
             Death();
+            isAlive = false;
         }
     }
 
     public void Death()
     {
         PlayerManager.instance.player.GetComponent<PlayerXP>().addExp(_XP);
-        Debug.Log(_nameOfEnemy+" died!");
-        Spawner.instance.deleteEnemy(gameObject);
-        if(gameObject)  Destroy(gameObject);
+        Debug.Log(_nameOfEnemy + " died!");
     }
-
 }   
