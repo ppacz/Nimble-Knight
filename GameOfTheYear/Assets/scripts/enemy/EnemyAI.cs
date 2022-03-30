@@ -7,18 +7,18 @@ public class EnemyAI : MonoBehaviour
     [Range(1, 100)]
     private int dmg;
     [SerializeField]
-    [Range(50, 200)]
+    [Range(0, 200)]
     private float speed;
     [SerializeField]
     private float nextWaypointDistance = 3;
     [SerializeField]
-    [Range(10, 20)]
+    [Range(0, 50)]
     private float followRange;
     [SerializeField]
     [Range(0.5f,5)]
     private float attackSpeed;
     [SerializeField]
-    [Range(4,8)]
+    [Range(1,8)]
     private float range = 4;
 
     private GameObject center;

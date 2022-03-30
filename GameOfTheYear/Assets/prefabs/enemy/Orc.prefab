@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1296634798292072022}
   - component: {fileID: -5764557635068512599}
   m_Layer: 7
-  m_Name: FlamyGuy
+  m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -529409481
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d89b476be2204a49af870ecb7fc5e0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 419c290b5bdc3c7439f8feb0f3075e96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd895538b12c6d246a28e97f09a2be65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
-  speed: 100
+  dmg: 30
+  speed: 70
   nextWaypointDistance: 3
-  followRange: 10
-  attackSpeed: 2
+  followRange: 20
+  attackSpeed: 5
   range: 4
 --- !u!114 &376976949100392214
 MonoBehaviour:
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealt: 100
-  _nameOfEnemy: FlameGuy
-  _XP: 5
+  _nameOfEnemy: Orc
+  _XP: 15
 --- !u!61 &-5764557635068512599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
