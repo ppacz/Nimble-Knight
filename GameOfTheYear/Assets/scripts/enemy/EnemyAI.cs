@@ -21,20 +21,26 @@ public class EnemyAI : MonoBehaviour
     [Range(1,8)]
     private float range = 4;
 
-    private GameObject center;
-    private GameObject player;
-    private Transform target;
+    private bool reachedEndOfPath = false;
+    private int currentWaypoint = 0;
+    private float recoveryFromAttacks = 0.5f;
     private float distanceFromPlayer;
     private double nextAttack;
-    private Path path;
-    private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
+    private double ableToMove;
+
+    private GameObject center;
+    private GameObject player;
     private Seeker seeker;
     private Rigidbody2D rb;
-
+    private Path path;
+    private Transform target;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        ableToMove = Time.time;
         nextAttack = Time.time;
         player = PlayerManager.instance.player;
         center = PlayerManager.instance.center;
@@ -63,6 +69,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (ableToMove > Time.time) return;
         getDistance();
         if (path == null) return;
         if (distanceFromPlayer > followRange) return;
@@ -92,6 +99,7 @@ public class EnemyAI : MonoBehaviour
             {
                 player.GetComponent<PlayerHP>().Damaged(dmg);
                 nextAttack = Time.time + attackSpeed;
+                ableToMove = Time.time + recoveryFromAttacks;
             }
         }
     }
@@ -99,5 +107,10 @@ public class EnemyAI : MonoBehaviour
     private void getDistance()
     {
         distanceFromPlayer = Vector3.Distance(rb.position, target.position);   
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

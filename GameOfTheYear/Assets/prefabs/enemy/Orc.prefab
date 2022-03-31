@@ -125,7 +125,7 @@ MonoBehaviour:
   nextWaypointDistance: 3
   followRange: 20
   attackSpeed: 5
-  range: 4
+  range: 2.31
 --- !u!114 &376976949100392214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   maxHealt: 100
   _nameOfEnemy: Orc
   _XP: 15
+  isAlive: 1
 --- !u!61 &-5764557635068512599
 BoxCollider2D:
   m_ObjectHideFlags: 0

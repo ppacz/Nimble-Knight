@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 1
-  showGizmos: 1
+  showGizmos: 0
   enemyTospawn: {fileID: 2723323945482993783, guid: a0503ba74e001274d915173b71ed9a62,
     type: 3}
   spawnRadius: 10
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 5
-  showGizmos: 1
+  showGizmos: 0
   enemyTospawn: {fileID: 2723323945482993783, guid: cc06b807b961a9848a665041de41e92f,
     type: 3}
   spawnRadius: 10
