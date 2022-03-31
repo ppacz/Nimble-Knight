@@ -5,7 +5,7 @@ public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
     private LayerMask dashLayerMask;
-    private const float MOVEMENTSPEED = 10f ;
+    private const float MOVEMENTSPEED = 130f ;
     private Rigidbody2D rigidBody2D;
     private Vector3 moveDirection;
     private Vector3 dashPosition;
@@ -56,7 +56,7 @@ public class PlayerControler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody2D.velocity = moveDirection * MOVEMENTSPEED;
+        rigidBody2D.velocity = moveDirection * MOVEMENTSPEED*4 * Time.deltaTime;
         if(moveDirection!=new Vector3(0, 0))
         {
             lastDirection = moveDirection;
