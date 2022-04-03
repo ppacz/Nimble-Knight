@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GroundTile
+  m_Name: grassAndDirt_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 795bac9a3f0c38441a52e7a395954861, type: 3}
+  m_Sprite: {fileID: 70928637722172299, guid: f712ff31bcb4960418d8e93786a5884b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
