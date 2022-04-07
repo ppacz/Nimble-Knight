@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 1
-  showGizmos: 0
+  showGizmos: 1
   enemyTospawn: {fileID: 2723323945482993783, guid: a0503ba74e001274d915173b71ed9a62,
     type: 3}
   spawnRadius: 10
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219107654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.6, y: 10.3, z: 0}
+  m_LocalPosition: {x: 18.99, y: 7.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10917,9 +10917,19 @@ PrefabInstance:
       objectReference: {fileID: 994194964}
     - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
         type: 3}
+      propertyPath: xpMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
+        type: 3}
       propertyPath: _unusedPoints
       value: 
       objectReference: {fileID: 943268412}
+    - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
+        type: 3}
+      propertyPath: xpToNextLevel
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5648883723305414896, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
         type: 3}
       propertyPath: m_Name

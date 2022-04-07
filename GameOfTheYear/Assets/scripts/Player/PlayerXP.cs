@@ -5,17 +5,14 @@ using System;
 
 public class PlayerXP : MonoBehaviour
 {
-    [Header("XP settigns")]
-    [SerializeField]
-    private float _currentXP = 0;
-    [SerializeField]
-    private float _xpToNextLevel = 10;
-    [SerializeField]
-    private int _level = 1;
-    [SerializeField]
-    private float _xpMultiplier = 2f;
-    [SerializeField]
+    private float _currentXP { get; set; }
+    private float _xpToNextLevel { get; set; }
+    private int _level { get; set; }
+    private float _xpMultiplier { get; set; }
     private int _skillPoints { get; set; }
+    [Header("XP stuff")]
+    public float xpToNextLevel;
+    public float xpMultiplier;
 
     [Header("Text fields")]
     [SerializeField]
@@ -28,6 +25,10 @@ public class PlayerXP : MonoBehaviour
     private Slider _xpBar;
     private void Start()
     {
+        _level = 1;
+        _xpMultiplier = xpMultiplier;
+        _currentXP = 0;
+        _xpToNextLevel = xpToNextLevel;
         updateUI();
         _skillPoints = 0;
         
@@ -84,4 +85,5 @@ public class PlayerXP : MonoBehaviour
             return true;
         }
     }
+
 }
