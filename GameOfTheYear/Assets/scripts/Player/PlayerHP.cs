@@ -15,9 +15,16 @@ public class PlayerHP : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        PlayerData player = SaveSystem.LoadPlayer();
+        if(player==null) currentHealth = maxHealth;
+        else
+        {
+            maxHealth = player.maxHealth;
+            currentHealth = player.currentHealth;
+        }
         wasDamaged = true;
         slider.maxValue = maxHealth;
-        currentHealth = maxHealth;
+        
 
     }
     void Update()
@@ -54,5 +61,6 @@ public class PlayerHP : MonoBehaviour
         }
         wasDamaged = true;
     }
+    public int HP() => currentHealth;
 
 }

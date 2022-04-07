@@ -1501,12 +1501,12 @@ PrefabInstance:
     - target: {fileID: 4845315913663320709, guid: af1cb6ec344dee140b64afa153b2c551,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.043279
+      value: -11.54
       objectReference: {fileID: 0}
     - target: {fileID: 4845315913663320709, guid: af1cb6ec344dee140b64afa153b2c551,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.39868
+      value: -13.99
       objectReference: {fileID: 0}
     - target: {fileID: 4845315913663320709, guid: af1cb6ec344dee140b64afa153b2c551,
         type: 3}
@@ -10917,19 +10917,9 @@ PrefabInstance:
       objectReference: {fileID: 994194964}
     - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
         type: 3}
-      propertyPath: xpMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
-        type: 3}
       propertyPath: _unusedPoints
       value: 
       objectReference: {fileID: 943268412}
-    - target: {fileID: 5648883723305414894, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
-        type: 3}
-      propertyPath: xpToNextLevel
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5648883723305414896, guid: 3d35f0af7ded4544ea4b6dcc2f6a32ec,
         type: 3}
       propertyPath: m_Name

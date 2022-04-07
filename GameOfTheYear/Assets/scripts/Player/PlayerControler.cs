@@ -46,6 +46,10 @@ public class PlayerControler : MonoBehaviour
         {
             UnlockSkillCommand("dash", 2);
         }
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            SaveSystem.SavePlayer(PlayerManager.instance.player);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

@@ -5,14 +5,17 @@ using System;
 
 public class PlayerXP : MonoBehaviour
 {
-    private float _currentXP { get; set; }
-    private float _xpToNextLevel { get; set; }
-    private int _level { get; set; }
-    private float _xpMultiplier { get; set; }
-    private int _skillPoints { get; set; }
     [Header("XP stuff")]
-    public float xpToNextLevel;
-    public float xpMultiplier;
+    [SerializeField]
+    private float _currentXP = 0;
+    [SerializeField]
+    private float _xpToNextLevel = 10;
+    [SerializeField]
+    private int _level = 1;
+    [SerializeField]
+    private float _xpMultiplier = 2;
+    [SerializeField]
+    private int _skillPoints = 0;
 
     [Header("Text fields")]
     [SerializeField]
@@ -25,12 +28,16 @@ public class PlayerXP : MonoBehaviour
     private Slider _xpBar;
     private void Start()
     {
-        _level = 1;
-        _xpMultiplier = xpMultiplier;
-        _currentXP = 0;
-        _xpToNextLevel = xpToNextLevel;
+        PlayerData player = SaveSystem.LoadPlayer();
+        if (player != null)
+        {
+            _currentXP = player.currentXP;
+            _xpToNextLevel = player.xpToNextLevel;
+            _level = player.level;
+            _xpMultiplier = player.xpMulti;
+            _skillPoints = player.skillPoints;
+        }
         updateUI();
-        _skillPoints = 0;
         
     }
     // will be called after enemy dies and will also check if player has enough Xp to level up
@@ -70,7 +77,7 @@ public class PlayerXP : MonoBehaviour
         }
     }
 
-    public bool useSkillPoint(int price) 
+    public bool useSkillPoint(int price)
     {
         if (price > _skillPoints)
         {
@@ -79,11 +86,32 @@ public class PlayerXP : MonoBehaviour
         }
         else
         {
-            
+
             _skillPoints -= price;
             updateUI();
             return true;
         }
+    }
+    
+    public float currentXP()
+    {
+        return _currentXP;
+    }
+    public float xpToNextLevel()
+    {
+        return _xpToNextLevel;
+    }
+    public int level()
+    {
+        return _level;
+    }
+    public float xpMultiplier()
+    {
+        return _xpMultiplier;
+    }
+    public int skillPoints()
+    {
+        return _skillPoints;
     }
 
 }
