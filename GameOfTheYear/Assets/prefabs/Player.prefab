@@ -216,10 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50fea53bf6181647b30567cd7ea0d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentXP: 0
-  _xpToNextLevel: 10
-  _level: 1
-  _xpMultiplier: 2
+  xpToNextLevel: 10
+  xpMultiplier: 2
   _xpText: {fileID: 0}
   _levelText: {fileID: 0}
   _unusedPoints: {fileID: 0}
