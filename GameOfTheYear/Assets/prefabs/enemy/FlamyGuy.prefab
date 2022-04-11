@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1855610239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855610240}
+  m_Layer: 7
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1855610240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855610239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4845315913663320709}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2723323945482993783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,10 +41,10 @@ GameObject:
   - component: {fileID: 4845315913663320709}
   - component: {fileID: 64552130593648571}
   - component: {fileID: -1755083154521942383}
-  - component: {fileID: -8992016575560940852}
   - component: {fileID: 376976949100392214}
   - component: {fileID: -1296634798292072022}
   - component: {fileID: -5764557635068512599}
+  - component: {fileID: 1169717337}
   m_Layer: 7
   m_Name: FlamyGuy
   m_TagString: Untagged
@@ -32,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1855610240}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,24 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-8992016575560940852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723323945482993783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd895538b12c6d246a28e97f09a2be65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 10
-  speed: 110
-  nextWaypointDistance: 3
-  followRange: 10
-  attackSpeed: 2
-  range: 4
 --- !u!114 &376976949100392214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +200,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -196,3 +209,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6888832, y: 1.729373}
   m_EdgeRadius: 0
+--- !u!114 &1169717337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723323945482993783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f41fd115729d664f91f2a5d8dd3f06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 20
+  speed: 80
+  nextWaypointDistance: 3
+  followRange: 20
+  attackSpeed: 5
+  range: 20
+  enemyCenter: {fileID: 1855610240}
+  projectile: {fileID: 3257218650976838610, guid: 64ebd9126f4fdc84f81827e7dc9dae44,
+    type: 3}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
