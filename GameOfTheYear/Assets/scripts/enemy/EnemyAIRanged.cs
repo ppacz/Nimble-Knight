@@ -130,4 +130,5 @@ public class EnemyAIRanged : MonoBehaviour
         Vector3 aimDirection = (center.transform.position - enemyCenter.position).normalized;
         return !Physics2D.CircleCast(enemyCenter.position,.5f,new Vector2(aimDirection.x, aimDirection.y), distanceFromPlayer,playerMask);
     }
+
 }
