@@ -46,7 +46,7 @@ public class PlayerControler : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
-            UnlockSkillCommand("dash", 2);
+            PlayerManager.instance.skillTree.SetActive(!PlayerManager.instance.skillTree.activeSelf);
         }
         if (Input.GetKeyUp(KeyCode.P))
         {

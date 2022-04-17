@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
     public GameObject player;
     public GameObject center;
+    public GameObject skillTree;
     
     private void Awake()
     {
