@@ -19,6 +19,8 @@ public class PlayerControler : MonoBehaviour
     {
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
         skillsSet.setSkills("dash");
+        skillsSet.setSkills("smash");
+        skillsSet.setSkills("fireball");
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
