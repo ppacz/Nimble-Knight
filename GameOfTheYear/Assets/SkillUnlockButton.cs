@@ -27,7 +27,6 @@ public class SkillUnlockButton : MonoBehaviour
         amount = 0;
         
         skillsSet = PlayerManager.instance.player.GetComponent<SkillUnlocking>();
-        buttonText.text = "Unlock " + skillName;
         gameObject.GetComponent<Button>().onClick.AddListener(() =>
         {   
             Button button = gameObject.GetComponent<Button>();
@@ -47,6 +46,20 @@ public class SkillUnlockButton : MonoBehaviour
             } else if (amount == maxAmount)button.interactable = false;
             updateText();
         });
+        Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
+        if (skillsSet.isSkill(skillName))
+        {
+            gameObject.GetComponent<Button>().interactable = !skillsSet.getState(skillName);
+            if (skillsSet.getState(skillName))
+            {
+                buttonText.text = skillName + " already unlocked";
+            }
+            else
+            {
+                buttonText.text = "unlock " + skillName;
+            }
+        
+        }
         updateText();
     }
     //dodìlat button stuff... ui update... skill unlocking atd..
@@ -66,6 +79,7 @@ public class SkillUnlockButton : MonoBehaviour
     
     private void updateText()
     {
-        skillCost.text = "" + price;
+        if (gameObject.GetComponent<Button>().interactable) skillCost.text = "" + price;
+        else skillCost.text = "x";
     }
 }

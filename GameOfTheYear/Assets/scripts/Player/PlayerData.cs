@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -10,11 +11,13 @@ public class PlayerData
     public float currentXP;
     public float xpToNextLevel;
     public float xpMulti;
+    public Dictionary<string, bool> skills;
 
     public PlayerData(GameObject player)
     {
         PlayerXP xp = player.GetComponent<PlayerXP>();
         PlayerHP hp = player.GetComponent<PlayerHP>();
+        SkillUnlocking skill = player.GetComponent<SkillUnlocking>();
         level = xp.level();
         skillPoints = xp.skillPoints();
         currentHealth = hp.HP();
@@ -22,5 +25,7 @@ public class PlayerData
         currentXP = xp.currentXP();
         xpToNextLevel = xp.xpToNextLevel();
         xpMulti = xp.xpMultiplier();
+        skills = skill.getSkills();
+
     }
 }

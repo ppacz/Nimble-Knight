@@ -62,7 +62,7 @@ public class PlayerControler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody2D.velocity = moveDirection * MOVEMENTSPEED*4 * Time.deltaTime;
+        rigidBody2D.velocity = 4 * MOVEMENTSPEED * Time.deltaTime * moveDirection;
         if(moveDirection!=new Vector3(0, 0))
         {
             lastDirection = moveDirection;

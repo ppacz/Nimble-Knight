@@ -5,10 +5,15 @@ class SkillUnlocking : MonoBehaviour
 {   
     [SerializeField]
     private Dictionary<string, bool> _skills = new Dictionary<string, bool>();
-
-    public void setSkills(string skill)
+    private void Start()
     {
-        _skills.Add(skill,false);
+        PlayerData data = SaveSystem.LoadPlayer();
+        _skills = data.skills;
+    }
+    public void setSkills(string skill)
+    {   
+        if(!_skills.ContainsKey(skill))_skills.Add(skill,false);
+        
     }
 
     public void unlockSkill(string skill)
@@ -22,4 +27,13 @@ class SkillUnlocking : MonoBehaviour
         return _skills[skill];
     }
     
+    public Dictionary<string,bool> getSkills()
+    {
+        return _skills;
+    }
+    
+    public bool isSkill(string skill)
+    {
+        return _skills.ContainsKey(skill);
+    }
 }
