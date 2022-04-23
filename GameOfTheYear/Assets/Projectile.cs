@@ -18,7 +18,9 @@ public class Projectile : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// life time of projectile
+    /// </summary>
     void Update()
     {
         rb.velocity = direction * speed;
@@ -27,12 +29,19 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
+    /// <summary>
+    /// sets dmg based on enemies dmg
+    /// </summary>
+    /// <param name="damage"></param>
     public void setDmg(int damage)
     {
         dmg = damage;
     }
 
+    /// <summary>
+    /// rotated projectile to the correct direction
+    /// </summary>
     private void rotate()
     {
         Vector2 position = PlayerManager.instance.center.transform.position;
@@ -41,6 +50,10 @@ public class Projectile : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
+    /// <summary>
+    /// detects collision of projectile and than is destroyed
+    /// </summary>
+    /// <param name="collision">thing projectile colided with</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")

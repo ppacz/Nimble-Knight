@@ -14,7 +14,9 @@ public class PlayerControler : MonoBehaviour
     private float dashAmount;
     private SkillUnlocking skillsSet;
     
-
+    /// <summary>
+    /// sets skill if there are none and thase needed references
+    /// </summary>
     private void Start()
     {   
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
@@ -28,7 +30,9 @@ public class PlayerControler : MonoBehaviour
             rigidBody2D.MovePosition(new Vector2(data.position[0], data.position[1]));
         }
     }
-
+    /// <summary>
+    /// manages inputs and takes care if other instant actions
+    /// </summary>
     private void Update()
     {
         moveX = 0f;
@@ -65,6 +69,9 @@ public class PlayerControler : MonoBehaviour
         moveDirection = new Vector3(moveX, moveY).normalized;
     }
 
+    /// <summary>
+    /// physics update
+    /// </summary>
     private void FixedUpdate()
     {
         rigidBody2D.velocity = 4 * MOVEMENTSPEED * Time.deltaTime * moveDirection;
@@ -73,10 +80,12 @@ public class PlayerControler : MonoBehaviour
             lastDirection = moveDirection;
         }
     }
-
-    private void Dash() 
+    /// <summary>
+    /// dash ability that uses stamine and needs to be unlocked in skillTree
+    /// </summary>
+    private void Dash()
     {
-        if (skillsSet.getState("dash")&&PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
+        if (skillsSet.getState("dash") && PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);
@@ -95,24 +104,9 @@ public class PlayerControler : MonoBehaviour
 
         }
         else
-        {   
+        {
 
             Debug.Log("Skill is not unlocked yet!");
-            return;
-        }
-    }
-
-    private void UnlockSkillCommand(string skillName,int price)
-    {   
-        if (!skillsSet.getState(skillName)) { 
-            if (gameObject.GetComponent<PlayerXP>().useSkillPoint(price)) skillsSet.unlockSkill(skillName);
-            else Debug.Log("Není možné skill odemknout");
-            return;
-
-        }
-        else
-        {
-            Debug.Log("Skill je jiz zakoupen");
             return;
         }
     }

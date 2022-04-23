@@ -18,13 +18,15 @@ public class Spawner : MonoBehaviour
     private double time;
     private List<GameObject> enemies;
 
-
-
     private void Start()
     {
         time = Time.time;
         enemies = new List<GameObject>();
     }
+
+    /// <summary>
+    /// removes dead enemies and takes care of when to spawn more of them
+    /// </summary>
     private void Update()
     {
         removeDeadEnemies();
@@ -35,6 +37,9 @@ public class Spawner : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// deleting emnemies from the list
+    /// </summary>
     private void removeDeadEnemies()
     {
         for(int i = 0; i < enemies.Count; i++)
@@ -46,6 +51,11 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// spawns enemies on random spots in certain radius on valid spots
+    /// </summary>
+    /// <param name="amount">spawn amount</param>
     private void spawnEnemies(int amount)
     {   
         for(int i = 0; i < amount; i++) { 
@@ -68,7 +78,9 @@ public class Spawner : MonoBehaviour
             enemies.Add(enemy);
         }
     }
-
+    /// <summary>
+    /// draws spawn radius
+    /// </summary>
     private void OnDrawGizmos()
     {
         if (showGizmos)

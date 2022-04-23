@@ -11,7 +11,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private Transform _centerTransform;
 
-    // Update is called once per frame
+    /// <summary>
+    /// rotates hit area of player to the position of mouse
+    /// </summary>
     void Update()
     {
         Vector3 _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
@@ -26,11 +28,11 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// damages enemies in the radius
+    /// </summary>
     void Attack()
-    {
-        //TODO add player attack animation
-        //damage enemies
-
+    { 
         Collider2D[] hitEnemies =Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)

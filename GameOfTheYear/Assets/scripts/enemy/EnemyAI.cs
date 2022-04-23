@@ -67,6 +67,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// enemy AI (movement and attack) for movements there is used A* pathfinding algorithm from unity asset store
+    /// </summary>
     void FixedUpdate()
     {
         if (ableToMove > Time.time) return;
@@ -103,11 +106,16 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// changes distance between player and enemy
+    /// </summary>
     private void getDistance()
     {
         distanceFromPlayer = Vector3.Distance(rb.position, target.position);   
     }
+    /// <summary>
+    /// draws enemy focus range
+    /// </summary>
 
     private void OnDrawGizmos()
     {

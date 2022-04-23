@@ -20,7 +20,10 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(LoadAsynch());
     }
-
+    /// <summary>
+    /// Loads scene asynchronously and if there is any save, it 
+    /// will load its save when start button is clicked in the main menu
+    /// </summary>
     private IEnumerator LoadAsynch()
     {
         AsyncOperation operation;
@@ -44,6 +47,8 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
     }
+    
+
 
     public void BackToMainMenu()
     {

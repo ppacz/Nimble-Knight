@@ -11,15 +11,21 @@ public class ColorChange : MonoBehaviour
     float green;
     
     bool change = true;
-    
+
+
+    /// <summary>
+    /// tick of animation
+    /// </summary>
     private void FixedUpdate()
     {
         if (timer % changeSpeed==0) colorChange();
         timer++;
         if (timer > 100) timer = 0;
     }
-
-    void colorChange() 
+    /// /// <summary>
+    /// changes background color (just for fun)
+    /// </summary>
+    private void colorChange() 
     {
             img.color = new Color(red, green / 100, blue);
             if (green == 100) change = false;
@@ -27,5 +33,6 @@ public class ColorChange : MonoBehaviour
             if (change) green++;
             else green--;
     }
+    
 
 }

@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    /// <summary>
+    /// Player manager for using some variables as global for refferences and also some saves
+    /// </summary>
     #region singleton
     public static PlayerManager instance;
     public GameObject player;

@@ -26,6 +26,9 @@ public class PlayerXP : MonoBehaviour
     private TMP_Text _unusedPoints;
     [SerializeField]
     private Slider _xpBar;
+    /// <summary>
+    /// loads from save file if it exists
+    /// </summary>
     private void Start()
     {
         PlayerData player = SaveSystem.LoadPlayer();
@@ -40,7 +43,9 @@ public class PlayerXP : MonoBehaviour
         updateUI();
         
     }
-    // will be called after enemy dies and will also check if player has enough Xp to level up
+    /// <summary>
+    /// adds exp after enemy is killed and if threshold is reached it will level up and work with exp as intended
+    /// </summary>
     public void addExp(int value)
     {
         _currentXP += value;
@@ -55,7 +60,10 @@ public class PlayerXP : MonoBehaviour
         }
         updateUI();
     }
-    //will be updating UI XP elements
+    
+    /// <summary>
+    /// Updates UI
+    /// </summary>
     private void updateUI()
     {
         _xpBar.minValue = 0;
@@ -76,6 +84,11 @@ public class PlayerXP : MonoBehaviour
             _unusedPoints.text = "";
         }
     }
+    /// <summary>
+    /// Unlocking skill
+    /// </summary>
+    /// <param name="price"></param>
+    /// <returns>true if was used else false</returns>
 
     public bool useSkillPoint(int price)
     {

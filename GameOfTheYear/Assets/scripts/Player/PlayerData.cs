@@ -13,8 +13,11 @@ public class PlayerData
     public float xpMulti;
     public int sceneIndex;
     public float[] position = new float[2];
-
     public Dictionary<string, bool> skills;
+    /// <summary>
+    /// stuff that needs to be saved to be able and continue from last save
+    /// </summary>
+    /// <param name="player"></param>
     public PlayerData(GameObject player)
     {
         PlayerXP xp = player.GetComponent<PlayerXP>();

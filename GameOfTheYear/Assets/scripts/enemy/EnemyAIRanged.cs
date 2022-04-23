@@ -48,7 +48,7 @@ public class EnemyAIRanged : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ableToMove = Time.time;
         nextAttack = Time.time;
@@ -60,13 +60,15 @@ public class EnemyAIRanged : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .5f);
 
     }
-    void UpdatePath()
+    /// <summary>
+    /// updates path every .5 sec
+    /// </summary>
+    private void UpdatePath()
     {
-        //updates path every .5 seconds
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
-    void OnPathComplete(Path p)
+    private void OnPathComplete(Path p)
     {
         if (!p.error)
         {
@@ -76,7 +78,10 @@ public class EnemyAIRanged : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    /// <summary>
+    /// enemy AI (movement and attack) for movements there is used A* pathfinding algorithm from unity asset store
+    /// </summary>
+    private void FixedUpdate()
     {
         if (ableToMove > Time.time) return;
         getDistance();
@@ -94,7 +99,6 @@ public class EnemyAIRanged : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            //Debug.Log(rb.drag);
             Vector2 force = direction * speed * 4 * Time.deltaTime;
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -115,16 +119,24 @@ public class EnemyAIRanged : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// changes distance between player and enemy
+    /// </summary>
     private void getDistance()
     {
         distanceFromPlayer = Vector3.Distance(rb.position, target.position);
     }
-
+    /// <summary>
+    /// draws enemy focus range
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, range);
     }
-
+    /// <summary>
+    /// checks if enemy can hit player
+    /// </summary>
+    /// <returns>returns true if enemy can hit player</returns>
     private bool canHit()
     {
         Vector3 aimDirection = (center.transform.position - enemyCenter.position).normalized;

@@ -16,12 +16,18 @@ public class PlayerStamina : MonoBehaviour
         staminaText.text = currentStamina + "/" + maxStamina;
         slider.value = currentStamina;
     }
-
+    /// <summary>
+    /// refueling stamina
+    /// </summary>
     private void FixedUpdate()
     {
             AddStamina(.02f);
     }
-    //Returns boolean bcs of condition that is in PlayerControler script that takes care of stamina usage
+    /// <summary>
+    /// Decresing amount of mana/stamina
+    /// </summary>
+    /// <param name="consumption">By how much it should decrese</param>
+    /// <returns>true if there was enough else false</returns>
     public bool useAbility(float consumption)
     {
         if (currentStamina >= consumption)
@@ -36,13 +42,18 @@ public class PlayerStamina : MonoBehaviour
 
     }
 
-    //updates text
+    /// <summary>
+    /// updates UI
+    /// </summary>
     private void UpdateUI() 
     {
         slider.value = currentStamina;
         staminaText.text = (int)currentStamina + "/" + maxStamina;
     }
-
+    /// <summary>
+    /// For potions
+    /// </summary>
+    /// <param name="stamina"></param>
     public void AddStamina(float stamina)
     {
         if (currentStamina + stamina >= maxStamina)

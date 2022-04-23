@@ -16,7 +16,10 @@ public class EnemyHP : MonoBehaviour
     {
         currentHealth = maxHealt;
     }
-    
+    /// <summary>
+    /// enemy gets damaged
+    /// </summary>
+    /// <param name="dmg"></param>
     public void getsDamaged(int dmg)
     {
         currentHealth -= dmg;
@@ -27,7 +30,9 @@ public class EnemyHP : MonoBehaviour
             isAlive = false;
         }
     }
-
+    /// <summary>
+    /// enemy dies and gives player exp
+    /// </summary>
     public void Death()
     {
         PlayerManager.instance.player.GetComponent<PlayerXP>().addExp(_XP);

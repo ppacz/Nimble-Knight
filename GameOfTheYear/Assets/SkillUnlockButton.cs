@@ -21,7 +21,9 @@ public class SkillUnlockButton : MonoBehaviour
     [SerializeField]
     private TMP_Text skillCost;
     
-
+    ///<summary>
+    /// adding event listener onto a button to level up and decide to do after leveling up
+    /// </summary>
     private void Start()
     {
         amount = 0;
@@ -46,7 +48,12 @@ public class SkillUnlockButton : MonoBehaviour
             } else if (amount == maxAmount)button.interactable = false;
             updateText();
         });
+        
+
         //Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
+        ///<summary>
+        ///decides what should be inserted into the text below button
+        ///</summary>
         if (skillsSet.isSkill(skillName))
         {
             gameObject.GetComponent<Button>().interactable = !skillsSet.getState(skillName);
@@ -60,9 +67,13 @@ public class SkillUnlockButton : MonoBehaviour
             }
         
         }
+        
         updateText();
     }
-    //dodìlat button stuff... ui update... skill unlocking atd..
+    /// <summary>
+    /// Takes care of buying upgrade 
+    /// Returns true if skill can be purchased and false if it cannot.
+    /// </summary>
     public bool UnlockSkillCommand(string skillName, int price)
     {
         if (!skillsSet.getState(skillName))
@@ -76,10 +87,13 @@ public class SkillUnlockButton : MonoBehaviour
         }
         return false;
     }
-    
+    /// <summary>
+    /// updates UI 
+    /// </summary>
     private void updateText()
     {
         if (gameObject.GetComponent<Button>().interactable) skillCost.text = "" + price;
         else skillCost.text = "x";
     }
+    
 }

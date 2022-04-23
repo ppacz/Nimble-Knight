@@ -5,6 +5,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 //this class handles saving and loading players info in games folder in binary file
 public static class SaveSystem
 {
+    /// <summary>
+    /// creates save file
+    /// </summary>
+    /// <param name="Player"></param>
+    /// <returns></returns>
     public static void SavePlayer(GameObject Player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -18,6 +23,9 @@ public static class SaveSystem
         stream.Close();
     }
 
+    /// <summary>
+    /// Returns Player data if save file exists if not, returns null
+    /// </summary>
     public static PlayerData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/save.goy";
@@ -38,5 +46,6 @@ public static class SaveSystem
             return null;
         }
     }
+    
 
 }
