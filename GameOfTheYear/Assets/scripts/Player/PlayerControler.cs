@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour
     
 
     private void Start()
-    {
+    {   
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
         skillsSet.setSkills("dash");
         skillsSet.setSkills("smash");

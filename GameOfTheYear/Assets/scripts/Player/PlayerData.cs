@@ -11,8 +11,10 @@ public class PlayerData
     public float currentXP;
     public float xpToNextLevel;
     public float xpMulti;
-    public Dictionary<string, bool> skills;
+    public int sceneIndex;
+    public float[] position = new float[2];
 
+    public Dictionary<string, bool> skills;
     public PlayerData(GameObject player)
     {
         PlayerXP xp = player.GetComponent<PlayerXP>();
@@ -26,6 +28,8 @@ public class PlayerData
         xpToNextLevel = xp.xpToNextLevel();
         xpMulti = xp.xpMultiplier();
         skills = skill.getSkills();
-
+        sceneIndex = PlayerManager.instance.sceneIndex;
+        position[0] = player.transform.position.x;
+        position[1] = player.transform.position.y;
     }
 }

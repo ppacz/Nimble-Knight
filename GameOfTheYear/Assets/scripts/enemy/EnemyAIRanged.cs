@@ -94,7 +94,7 @@ public class EnemyAIRanged : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Debug.Log(rb.drag);
+            //Debug.Log(rb.drag);
             Vector2 force = direction * speed * 4 * Time.deltaTime;
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);

@@ -46,7 +46,7 @@ public class SkillUnlockButton : MonoBehaviour
             } else if (amount == maxAmount)button.interactable = false;
             updateText();
         });
-        Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
+        //Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
         if (skillsSet.isSkill(skillName))
         {
             gameObject.GetComponent<Button>().interactable = !skillsSet.getState(skillName);

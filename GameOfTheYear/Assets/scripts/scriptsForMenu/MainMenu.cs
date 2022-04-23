@@ -23,8 +23,16 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator LoadAsynch()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-
+        AsyncOperation operation;
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            operation = SceneManager.LoadSceneAsync(data.sceneIndex);
+        }
+        else
+        { 
+        operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        }
         loadingScreen.SetActive(true);
 
         while (!operation.isDone) 

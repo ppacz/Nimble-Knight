@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -7,13 +8,17 @@ public class PlayerManager : MonoBehaviour
     public GameObject player;
     public GameObject center;
     public GameObject skillTree;
+    public int sceneIndex;
     
     private void Awake()
     {
         instance = this;
     }
     #endregion
-
+    private void Start()
+    {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
     
 
 }
