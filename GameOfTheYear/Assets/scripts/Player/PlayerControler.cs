@@ -22,6 +22,11 @@ public class PlayerControler : MonoBehaviour
         skillsSet.setSkills("smash");
         skillsSet.setSkills("fireball");
         rigidBody2D = GetComponent<Rigidbody2D>();
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            rigidBody2D.MovePosition(new Vector2(data.position[0], data.position[1]));
+        }
     }
 
     private void Update()
@@ -50,7 +55,7 @@ public class PlayerControler : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.P))
         {
-            SaveSystem.SavePlayer(PlayerManager.instance.player);
+            SaveSystem.SavePlayer(gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
