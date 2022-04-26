@@ -43,6 +43,7 @@ public class EnemyAIRanged : MonoBehaviour
     private Rigidbody2D rb;
     private Path path;
     private Transform target;
+    private Animator animator;
    
 
 
@@ -50,6 +51,7 @@ public class EnemyAIRanged : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        animator = GetComponent<Animator>();
         ableToMove = Time.time;
         nextAttack = Time.time;
         center = PlayerManager.instance.center;
@@ -100,6 +102,8 @@ public class EnemyAIRanged : MonoBehaviour
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
             Vector2 force = direction * speed * 4 * Time.deltaTime;
+            animator.SetFloat("xMove", direction.x);
+            animator.SetFloat("yMove", direction.y);
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)

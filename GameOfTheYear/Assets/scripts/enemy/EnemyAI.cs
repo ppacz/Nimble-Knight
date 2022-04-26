@@ -34,12 +34,14 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private Path path;
     private Transform target;
+    private Animator animator;
     
     
     
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         ableToMove = Time.time;
         nextAttack = Time.time;
         player = PlayerManager.instance.player;
@@ -88,6 +90,8 @@ public class EnemyAI : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            animator.SetFloat("xMove", direction.x);
+            animator.SetFloat("yMove", direction.y);
             Vector2 force = direction * speed* 4 * Time.deltaTime;
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
