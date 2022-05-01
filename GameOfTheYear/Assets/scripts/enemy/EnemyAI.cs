@@ -27,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     private float distanceFromPlayer;
     private double nextAttack;
     private double ableToMove;
+    private float lastX = 0;
 
     private GameObject center;
     private GameObject player;
@@ -41,7 +42,9 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lastX = 0.5f;
         animator = GetComponent<Animator>();
+        animator.SetFloat("horizontalMovementLast", lastX);
         ableToMove = Time.time;
         nextAttack = Time.time;
         player = PlayerManager.instance.player;
@@ -74,12 +77,17 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        if (ableToMove > Time.time) return;
+        if (ableToMove > Time.time)return;
         getDistance();
         if (path == null) return;
-        if (distanceFromPlayer > followRange) return;
+        if (distanceFromPlayer > followRange)
+        {
+            animator.SetBool("isMoving", false);
+            return;
+        }
         else if (distanceFromPlayer > range && distanceFromPlayer < followRange)
         {
+            animator.SetBool("isMoving", true);
             if (currentWaypoint >= path.vectorPath.Count)
             {
                 reachedEndOfPath = true;
@@ -90,8 +98,19 @@ public class EnemyAI : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            animator.SetFloat("xMove", direction.x);
-            animator.SetFloat("yMove", direction.y);
+            Debug.Log(rb.position.x - target.transform.position.x);
+            if ((rb.position.x - target.transform.position.x) < 0f) {
+                animator.SetFloat("horizontalMovement", .5f);
+            }
+            else
+            {
+                animator.SetFloat("horizontalMovement", -.5f);
+            }
+            if (direction.x != 0)
+            {
+                lastX = Mathf.Clamp(direction.x,-.5f,.5f);
+                animator.SetFloat("horizontalMovementLast", lastX);
+            }
             Vector2 force = direction * speed* 4 * Time.deltaTime;
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -102,6 +121,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isMoving", false);
             if (nextAttack <= Time.time)
             {
                 player.GetComponent<PlayerHP>().Damaged(dmg);

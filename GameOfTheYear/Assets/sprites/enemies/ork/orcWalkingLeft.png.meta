@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: f694bd2ed4da9174991a52364f648bdb
+guid: a0b9785616502f749848ec3c84d1420b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5694047921162545005
-    second: okr-chuze-vlevo_0
+      213: 4615459209531156648
+    second: orcWalkingLeft_0
   - first:
-      213: 642233514719046809
-    second: okr-chuze-vlevo_1
+      213: 77500520344267863
+    second: orcWalkingLeft_1
   - first:
-      213: -4448624802993374704
-    second: okr-chuze-vlevo_2
+      213: -5936588044272679179
+    second: orcWalkingLeft_2
   - first:
-      213: -3629793048367395286
-    second: okr-chuze-vlevo_3
+      213: -2452981117210877228
+    second: orcWalkingLeft_3
   - first:
-      213: -3555080972993080442
-    second: okr-chuze-vlevo_4
+      213: 1422628778396033176
+    second: orcWalkingLeft_4
   - first:
-      213: 6771878628306379017
-    second: okr-chuze-vlevo_5
+      213: 7157345281312723680
+    second: orcWalkingLeft_5
   - first:
-      213: 6726791528932139394
-    second: okr-chuze-vlevo_6
+      213: 7022549086053447902
+    second: orcWalkingLeft_6
   - first:
-      213: -8030352995813196593
-    second: okr-chuze-vlevo_7
+      213: 1611080608458598539
+    second: orcWalkingLeft_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -70,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +91,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -103,7 +103,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -115,169 +115,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: okr-chuze-vlevo_0
+      name: orcWalkingLeft_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d67e1fa7a62550f40800000000000000
-      internalID: 5694047921162545005
+      spriteID: 8a8e86382b76d0040800000000000000
+      internalID: 4615459209531156648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: okr-chuze-vlevo_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99cedab9afba9e800800000000000000
-      internalID: 642233514719046809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: okr-chuze-vlevo_2
+      name: orcWalkingLeft_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01a769ebf4f4342c0800000000000000
-      internalID: -4448624802993374704
+      spriteID: 75c27090056531100800000000000000
+      internalID: 77500520344267863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: okr-chuze-vlevo_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2e01e7347260adc0800000000000000
-      internalID: -3629793048367395286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: okr-chuze-vlevo_4
+      name: orcWalkingLeft_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6835ff0d0b0d9aec0800000000000000
-      internalID: -3555080972993080442
+      spriteID: 5f6cb4b80a00d9da0800000000000000
+      internalID: -5936588044272679179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: okr-chuze-vlevo_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 901e246cbbb8afd50800000000000000
-      internalID: 6771878628306379017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: okr-chuze-vlevo_6
+      name: orcWalkingLeft_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2816b18614d5a5d50800000000000000
-      internalID: 6726791528932139394
+      spriteID: 4d2a7eb9ba245fdd0800000000000000
+      internalID: -2452981117210877228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: okr-chuze-vlevo_7
+      name: orcWalkingLeft_4
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcc7f873f747e8090800000000000000
-      internalID: -8030352995813196593
+      spriteID: 8902b8726513eb310800000000000000
+      internalID: 1422628778396033176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcWalkingLeft_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e29673bc9ff35360800000000000000
+      internalID: 7157345281312723680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcWalkingLeft_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8b5fbcf2b157160800000000000000
+      internalID: 7022549086053447902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orcWalkingLeft_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 16
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88e1bb0745bb5610800000000000000
+      internalID: 1611080608458598539
       vertices: []
       indices: 
       edges: []
