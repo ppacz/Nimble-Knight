@@ -37,6 +37,7 @@ public class EnemyAIRanged : MonoBehaviour
     private float distanceFromPlayer;
     private double nextAttack;
     private double ableToMove;
+    private float lastX;
 
     private GameObject center;
     private Seeker seeker;
@@ -51,6 +52,7 @@ public class EnemyAIRanged : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        lastX = 0.5f;
         animator = GetComponent<Animator>();
         ableToMove = Time.time;
         nextAttack = Time.time;
@@ -88,9 +90,14 @@ public class EnemyAIRanged : MonoBehaviour
         if (ableToMove > Time.time) return;
         getDistance();
         if (path == null) return;
-        if (distanceFromPlayer > followRange) return;
+        if (distanceFromPlayer > followRange)
+        {
+            rb.velocity = new Vector2(0, 0);
+            return;
+        }
         else if (!canHit() && distanceFromPlayer < followRange)
         {
+            animator.SetBool("isMoving", true);
             if (currentWaypoint >= path.vectorPath.Count)
             {
                 reachedEndOfPath = true;
@@ -101,9 +108,21 @@ public class EnemyAIRanged : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Debug.Log(rb.position.x - target.transform.position.x);
+            if ((rb.position.x - target.transform.position.x) < 0f)
+            {
+                animator.SetFloat("horizontalMovement", .5f);
+            }
+            else
+            {
+                animator.SetFloat("horizontalMovement", -.5f);
+            }
+            if (direction.x != 0)
+            {
+                lastX = Mathf.Clamp(direction.x, -.5f, .5f);
+                animator.SetFloat("horizontalMovementLast", lastX);
+            }
             Vector2 force = direction * speed * 4 * Time.deltaTime;
-            animator.SetFloat("xMove", direction.x);
-            animator.SetFloat("yMove", direction.y);
             rb.AddForce(force);
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)

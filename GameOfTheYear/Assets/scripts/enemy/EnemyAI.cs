@@ -83,6 +83,7 @@ public class EnemyAI : MonoBehaviour
         if (distanceFromPlayer > followRange)
         {
             animator.SetBool("isMoving", false);
+            rb.velocity = new Vector2(0, 0);
             return;
         }
         else if (distanceFromPlayer > range && distanceFromPlayer < followRange)
