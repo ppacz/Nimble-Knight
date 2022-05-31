@@ -326,7 +326,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2290493617766125578}
   m_OnClick:
     m_PersistentCalls:
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: dash
   price: 2
-  isGrowing: 0
+  isGrowing: 1
   maxAmount: 1
   buttonText: {fileID: 562974803585249867}
   skillCost: {fileID: 4683055185912721679}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 922124236356866828}
   - component: {fileID: 3519254534112909032}
   m_Layer: 5
-  m_Name: SkillButtonExample
+  m_Name: DmgButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.4
 --- !u!1 &8821421793898141005
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2041310727879906800
