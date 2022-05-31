@@ -20,9 +20,12 @@ public class PlayerControler : MonoBehaviour
     private void Start()
     {   
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
-        skillsSet.setSkills("dash");
-        skillsSet.setSkills("smash");
-        skillsSet.setSkills("fireball");
+        skillsSet.setSkills("Dash");
+        skillsSet.setSkills("Damage");
+        skillsSet.setSkills("Health regeneration");
+        skillsSet.setSkills("Max health");
+        skillsSet.setSkills("Max stamina");
+        skillsSet.setSkills("Stamina regeneration");
         rigidBody2D = GetComponent<Rigidbody2D>();
         PlayerData data = SaveSystem.LoadPlayer();
         if (data != null)
@@ -109,5 +112,16 @@ public class PlayerControler : MonoBehaviour
             Debug.Log("Skill is not unlocked yet!");
             return;
         }
+    }
+
+    public void newUpgrade(string skill)
+    {
+        Debug.Log("works");
+        if (skill=="Dash") return;
+        else if (skill == "Damage") GetComponent<PlayerCombat>().dmg+=10;
+        else if (skill == "Health regeneration") GetComponent<PlayerHP>().regen +=2 ;
+        else if (skill == "Max health")GetComponent<PlayerHP>().maxHealth += 50;
+        else if (skill == "Max stamina") GetComponent<PlayerStamina>().maxStamina += 30;
+        else if (skill == "Stamina regeneration") GetComponent<PlayerStamina>().regen += 1;
     }
 }

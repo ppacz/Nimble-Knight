@@ -99,7 +99,7 @@ public class EnemyAI : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Debug.Log(rb.position.x - target.transform.position.x);
+            //Debug.Log(rb.position.x - target.transform.position.x);
             if ((rb.position.x - target.transform.position.x) < 0f) {
                 animator.SetFloat("horizontalMovement", .5f);
             }

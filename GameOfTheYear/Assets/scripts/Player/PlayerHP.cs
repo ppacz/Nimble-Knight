@@ -11,6 +11,7 @@ public class PlayerHP : MonoBehaviour
     public Slider slider;
     private int currentHealth;
     private bool wasDamaged;
+    public int regen = 1;
 
     /// <summary>
     /// If save loads save
@@ -28,7 +29,7 @@ public class PlayerHP : MonoBehaviour
         wasDamaged = true;
         slider.maxValue = maxHealth;
         updateUI();
-
+        InvokeRepeating("Heal", 0f, 3f);
     }
     /// <summary>
     /// loads death scene if player dies
@@ -67,7 +68,20 @@ public class PlayerHP : MonoBehaviour
         {
             currentHealth += amount;
         }
+        updateUI();
         wasDamaged = true;
+    }
+    public void Heal()
+    {
+        if (currentHealth + regen >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += regen;
+        }
+        updateUI();
     }
     public int HP() => currentHealth;
     /// <summary>

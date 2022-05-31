@@ -29,7 +29,9 @@ class SkillUnlocking : MonoBehaviour
     /// <param name="skill"> name of skill </param>
     public void unlockSkill(string skill)
     {
+        Debug.Log("unlockSkill is called");
         _skills[skill] = true;
+        PlayerManager.instance.player.GetComponent<PlayerControler>().newUpgrade(skill);
     }
 
     /// <returns>State of desired skill</returns>

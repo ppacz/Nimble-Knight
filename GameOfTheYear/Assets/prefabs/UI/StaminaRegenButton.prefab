@@ -343,10 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efabe5ac5a7c7340b0bbfca7113b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: dash
+  skillName: Stamina regeneration
   price: 2
-  isGrowing: 1
-  maxAmount: 1
+  isGrowing: 0
+  maxAmount: 3
   buttonText: {fileID: 562974803585249867}
   skillCost: {fileID: 4683055185912721679}
 --- !u!1 &5569724723242725161

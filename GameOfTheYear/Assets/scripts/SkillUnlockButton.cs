@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -45,11 +43,9 @@ public class SkillUnlockButton : MonoBehaviour
                     amount++;
 
                 }
-            } else if (amount == maxAmount)button.interactable = false;
+            } else if (amount >= maxAmount)button.interactable = false;
             updateText();
         });
-        
-
         //Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
         ///<summary>
         ///decides what should be inserted into the text below button
@@ -76,15 +72,12 @@ public class SkillUnlockButton : MonoBehaviour
     /// </summary>
     public bool UnlockSkillCommand(string skillName, int price)
     {
-        if (!skillsSet.getState(skillName))
-        {
-            if (PlayerManager.instance.player.GetComponent<PlayerXP>().useSkillPoint(price)) 
+        if (PlayerManager.instance.player.GetComponent<PlayerXP>().useSkillPoint(price)) 
             {
                 skillsSet.unlockSkill(skillName);
                 return true;
             }
-            else Debug.Log("Není možné skill odemknout");
-        }
+        Debug.Log("Není možné skill odemknout");
         return false;
     }
     /// <summary>

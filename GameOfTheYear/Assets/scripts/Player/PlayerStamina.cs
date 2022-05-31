@@ -8,6 +8,7 @@ public class PlayerStamina : MonoBehaviour
     public int maxStamina;
     public Slider slider;
     private float currentStamina;
+    public float regen { get; set; }
     void Start()
     {
         currentStamina = maxStamina;
@@ -15,14 +16,12 @@ public class PlayerStamina : MonoBehaviour
         slider.minValue = 0;
         staminaText.text = currentStamina + "/" + maxStamina;
         slider.value = currentStamina;
+        regen = 1;
+        InvokeRepeating("AddStamina", 0f, 5f);
     }
     /// <summary>
     /// refueling stamina
     /// </summary>
-    private void FixedUpdate()
-    {
-            AddStamina(.02f);
-    }
     /// <summary>
     /// Decresing amount of mana/stamina
     /// </summary>
@@ -63,6 +62,18 @@ public class PlayerStamina : MonoBehaviour
         else
         {
             currentStamina += stamina;
+        }
+        UpdateUI();
+    }
+    public void AddStamina()
+    {
+        if (currentStamina + regen >= maxStamina)
+        {
+            currentStamina = maxStamina;
+        }
+        else
+        {
+            currentStamina += regen;
         }
         UpdateUI();
     }
