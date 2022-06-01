@@ -20,6 +20,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     [Range(1,8)]
     private float range = 4;
+    [SerializeField]
+    private Transform enemyCenter;
+    [Header("Attacking layer")]
+    [SerializeField]
+    private LayerMask playerMask;
 
     private bool reachedEndOfPath = false;
     private int currentWaypoint = 0;
@@ -145,5 +150,15 @@ public class EnemyAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    /// <summary>
+    /// checks if enemy can hit player
+    /// </summary>
+    /// <returns>returns true if enemy can hit player</returns>
+    private bool canHit()
+    {
+        Vector3 aimDirection = (center.transform.position - enemyCenter.position).normalized;
+        return !Physics2D.CircleCast(enemyCenter.position, .5f, new Vector2(aimDirection.x, aimDirection.y), distanceFromPlayer, playerMask);
     }
 }
