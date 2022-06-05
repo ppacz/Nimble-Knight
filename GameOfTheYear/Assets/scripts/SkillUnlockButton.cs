@@ -12,7 +12,7 @@ public class SkillUnlockButton : MonoBehaviour
     [SerializeField]
     private bool isGrowing;
     [SerializeField]
-    private int maxAmount=1;
+    private int maxAmount;
     private int amount;
     [SerializeField]
     private TMP_Text buttonText;
@@ -24,47 +24,65 @@ public class SkillUnlockButton : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        amount = 0;
-        
+        Button button = gameObject.GetComponent<Button>();
+        PlayerData data;
+        data = SaveSystem.LoadPlayer();
+        if (null!=data)
+        {
+            amount = data.skillLevel[skillName];
+        }
+        else amount = 0;
+        if (isGrowing) { 
+            for(int i=0;i< amount; i++)
+            {
+                price++;
+            }
+        }
+
         skillsSet = PlayerManager.instance.player.GetComponent<SkillUnlocking>();
+        if (amount >= maxAmount)
+        {
+            button.interactable = false;
+            buttonText.text = skillName + " already unlocked";
+        }
+        else
+        {
+            button.interactable = true;
+            buttonText.text = "unlock " + skillName;
+        }
+        updateText();
         gameObject.GetComponent<Button>().onClick.AddListener(() =>
         {   
-            Button button = gameObject.GetComponent<Button>();
-            if (amount == maxAmount - 1)
+            
+
+            if (UnlockSkillCommand(skillName, price))
             {
-                button.interactable = !UnlockSkillCommand(skillName, price);
+                if (isGrowing)
+                {
+                    price++;
+                }
                 amount++;
             }
-            else if (amount < maxAmount)
+            if (amount >= maxAmount)
             {
-                if (UnlockSkillCommand(skillName, price))
-                {
-                    if (isGrowing) price++;
-                    amount++;
+                button.interactable = false;
+                buttonText.text = skillName + " already unlocked";
+            }
+            else
+            {
+                button.interactable = true;
+                buttonText.text = "unlock " + skillName;
+            }
 
-                }
-            } else if (amount >= maxAmount)button.interactable = false;
+
             updateText();
         });
         //Debug.Log(skillsSet.isSkill(skillName) + ":" + skillsSet.getState(skillName));
         ///<summary>
         ///decides what should be inserted into the text below button
         ///</summary>
-        if (skillsSet.isSkill(skillName))
-        {
-            gameObject.GetComponent<Button>().interactable = !skillsSet.getState(skillName);
-            if (skillsSet.getState(skillName))
-            {
-                buttonText.text = skillName + " already unlocked";
-            }
-            else
-            {
-                buttonText.text = "unlock " + skillName;
-            }
         
-        }
-        
-        updateText();
+       
     }
     /// <summary>
     /// Takes care of buying upgrade 

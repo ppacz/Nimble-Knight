@@ -14,6 +14,11 @@ public class PlayerCombat : MonoBehaviour
     /// <summary>
     /// rotates hit area of player to the position of mouse
     /// </summary>
+    private void Start()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null) dmg = data.dmg;
+    }
     void Update()
     {
         Vector3 _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
@@ -38,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyHP>().getsDamaged(dmg);
+            Debug.Log("just attacked" + enemy.name + " for " + dmg);
         }
     }
 

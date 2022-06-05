@@ -11,7 +11,16 @@ public class PlayerStamina : MonoBehaviour
     public float regen { get; set; }
     void Start()
     {
-        currentStamina = maxStamina;
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            currentStamina = data.currentStamina;
+            maxStamina = data.maxStamina;
+        }
+        else 
+        { 
+            currentStamina = maxStamina;
+        }
         slider.maxValue = maxStamina;
         slider.minValue = 0;
         staminaText.text = currentStamina + "/" + maxStamina;
@@ -76,5 +85,10 @@ public class PlayerStamina : MonoBehaviour
             currentStamina += regen;
         }
         UpdateUI();
+    }
+    
+    public float getStamina()
+    {
+        return currentStamina;
     }
 }

@@ -88,7 +88,7 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void Dash()
     {
-        if (skillsSet.getState("dash") && PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
+        if (skillsSet.getState("Dash") && PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
             Vector3 centerOfHero = new Vector3(transform.position.x, transform.position.y + 1.2f);

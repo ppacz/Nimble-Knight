@@ -91,7 +91,7 @@ public class EnemyAI : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             return;
         }
-        else if (!canHit() && distanceFromPlayer > range && distanceFromPlayer < followRange)
+        else if (distanceFromPlayer > range && distanceFromPlayer < followRange)
         {
             animator.SetBool("isMoving", true);
             if (currentWaypoint >= path.vectorPath.Count)
@@ -125,7 +125,7 @@ public class EnemyAI : MonoBehaviour
                 currentWaypoint++;
             }
         }
-        else
+        else if (!canHit()&&distanceFromPlayer<range)
         {
             animator.SetBool("isMoving", false);
             if (nextAttack <= Time.time)
@@ -149,6 +149,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = new Color(255, 0, 0);
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
@@ -159,6 +160,6 @@ public class EnemyAI : MonoBehaviour
     private bool canHit()
     {
         Vector3 aimDirection = (center.transform.position - enemyCenter.position).normalized;
-        return !Physics2D.CircleCast(enemyCenter.position, .5f, new Vector2(aimDirection.x, aimDirection.y), distanceFromPlayer, playerMask);
+        return Physics2D.CircleCast(enemyCenter.position, .5f, new Vector2(aimDirection.x, aimDirection.y), range, playerMask);
     }
 }
