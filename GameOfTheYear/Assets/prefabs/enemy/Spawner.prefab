@@ -50,4 +50,4 @@ MonoBehaviour:
   spawnRate: 10
   nonSpawnableLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 152
