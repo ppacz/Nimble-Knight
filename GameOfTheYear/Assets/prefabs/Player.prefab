@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5648883723305414893}
   - component: {fileID: 5648883723305414894}
   - component: {fileID: 5648883723305414895}
+  - component: {fileID: 1225294282630574477}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -189,6 +190,7 @@ MonoBehaviour:
   alive: 1
   maxHealth: 100
   slider: {fileID: 0}
+  regen: 1
 --- !u!114 &5648883723305414893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +239,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b9c5655775f5c46bac33d868881f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1225294282630574477
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648883723305414896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c95713aa3abd9e42bcc53983bd76dd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5648883723398660143
 GameObject:
   m_ObjectHideFlags: 0

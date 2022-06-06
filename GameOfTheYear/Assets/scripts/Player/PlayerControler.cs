@@ -13,6 +13,7 @@ public class PlayerControler : MonoBehaviour
     private float moveY, moveX;
     private float dashAmount;
     private SkillUnlocking skillsSet;
+    private Animator animator;
     
     /// <summary>
     /// sets skill if there are none and thase needed references
@@ -32,6 +33,7 @@ public class PlayerControler : MonoBehaviour
         {
             rigidBody2D.MovePosition(new Vector2(data.position[0], data.position[1]));
         }
+        animator = gameObject.GetComponent<Animator>();
     }
     /// <summary>
     /// manages inputs and takes care if other instant actions
@@ -82,6 +84,17 @@ public class PlayerControler : MonoBehaviour
         {
             lastDirection = moveDirection;
         }
+        if (moveDirection.x != 0f)
+        {
+            animator.SetFloat("horizontalMovement", moveDirection.x);
+        }
+        if (moveDirection.x == 0)
+        {
+            
+            animator.SetFloat("horizontalMovementLast", lastDirection.x);
+        }
+        if (rigidBody2D.velocity != new Vector2(0, 0)) animator.SetBool("isMoving", true);
+        else animator.SetBool("isMoving", false);
     }
     /// <summary>
     /// dash ability that uses stamine and needs to be unlocked in skillTree
