@@ -1,7 +1,7 @@
 <br><br>
 <div align="center">
   
-# Name Of The Game (still undecided lol)
+# Nimble Knight
 *Welcome! This is our school project.* 
   
 <br><br>
