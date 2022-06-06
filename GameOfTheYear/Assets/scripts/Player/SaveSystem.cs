@@ -42,7 +42,7 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("Game save had to be deleted.\n file should be located here: " + path);
+            //Debug.LogError("Game save had to be deleted.\n file should be located here: " + path);
             return null;
         }
     }
