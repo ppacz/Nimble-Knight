@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class audioOnClick : MonoBehaviour
 {
-    public AudioSource soundPlayer;
-
-    void Start()
-    { 
-    }
-    void Update()
-    {   
-    }
-
+    [SerializeField] private AudioSource soundPlayer;
     public void playSoundEffect()
     {
         soundPlayer.Play();

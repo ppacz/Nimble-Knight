@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
-  speed: 80
+  speed: 60
   nextWaypointDistance: 3
   followRange: 20
   attackSpeed: 5

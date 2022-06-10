@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
-  speed: 200
+  speed: 100
   nextWaypointDistance: 3
   followRange: 10
   attackSpeed: 1

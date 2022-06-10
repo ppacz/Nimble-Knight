@@ -5,7 +5,7 @@ public class PlayerControler : MonoBehaviour
 {
     [SerializeField]
     private LayerMask dashLayerMask;
-    private const float MOVEMENTSPEED = 130f ;
+    private const float MOVEMENTSPEED = 90f ;
     private Rigidbody2D rigidBody2D;
     private Vector3 moveDirection;
     private Vector3 dashPosition;
