@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,7 +16,13 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
+    public void playGame()
+    {
+        File.Delete(Application.persistentDataPath + "/save.goy");
+        StartCoroutine(LoadAsynch());
+        
+       
+    }
     public void PlayGame()
     {
         StartCoroutine(LoadAsynch());
