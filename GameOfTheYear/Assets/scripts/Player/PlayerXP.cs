@@ -54,6 +54,7 @@ public class PlayerXP : MonoBehaviour
             _skillPoints += 1;
             _xpToNextLevel = (int) (_xpToNextLevel * _xpMultiplier);
             _xpMultiplier += .2f;
+            gameObject.GetComponent<PlayerSoundManager>().playLevelUp();
             
         }
         updateUI();

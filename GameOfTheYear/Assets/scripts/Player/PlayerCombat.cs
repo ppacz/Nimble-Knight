@@ -45,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<EnemyHP>().getsDamaged(dmg);
             Debug.Log("just attacked" + enemy.name + " for " + dmg);
         }
+        gameObject.GetComponent<PlayerSoundManager>().playAttack();
     }
 
     void OnDrawGizmosSelected()

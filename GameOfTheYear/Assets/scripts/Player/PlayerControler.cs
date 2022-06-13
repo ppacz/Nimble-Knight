@@ -14,6 +14,8 @@ public class PlayerControler : MonoBehaviour
     private float dashAmount;
     private SkillUnlocking skillsSet;
     private Animator animator;
+    private bool isWalking;
+    
     
     /// <summary>
     /// sets skill if there are none and thase needed references
@@ -40,23 +42,28 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        isWalking = false;
         moveX = 0f;
         moveY = 0f;
         if (Input.GetKey(KeyCode.W))
         {
             moveY = 1;
+            isWalking = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveY = -1f;
+            isWalking = true;
         }
         if (Input.GetKey(KeyCode.A))
         {
             moveX = -1f;
+            isWalking = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveX = 1f;
+            isWalking = true;
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
@@ -90,11 +97,18 @@ public class PlayerControler : MonoBehaviour
         }
         if (moveDirection.x == 0)
         {
-            
             animator.SetFloat("horizontalMovementLast", lastDirection.x);
         }
         if (rigidBody2D.velocity != new Vector2(0, 0)) animator.SetBool("isMoving", true);
         else animator.SetBool("isMoving", false);
+        if(!gameObject.GetComponent<AudioSource>().isPlaying && isWalking)
+        {
+            gameObject.GetComponent<PlayerSoundManager>().playWalk();
+        }
+        if(!isWalking)
+        {
+            gameObject.GetComponent<AudioSource>().volume = 0;
+        }
     }
     /// <summary>
     /// dash ability that uses stamine and needs to be unlocked in skillTree
@@ -129,6 +143,7 @@ public class PlayerControler : MonoBehaviour
 
     public void newUpgrade(string skill)
     {
+        gameObject.GetComponent<PlayerSoundManager>().playAbilityUpgrade();
         Debug.Log("works");
         if (skill=="Dash") return;
         else if (skill == "Damage") GetComponent<PlayerCombat>().dmg+=10;
