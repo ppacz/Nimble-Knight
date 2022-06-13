@@ -130,6 +130,7 @@ public class EnemyAI : MonoBehaviour
             animator.SetBool("isMoving", false);
             if (nextAttack <= Time.time)
             {
+                gameObject.GetComponent<SoundManager>().playAttackSound();
                 player.GetComponent<PlayerHP>().Damaged(dmg);
                 nextAttack = Time.time + attackSpeed;
                 ableToMove = Time.time + recoveryFromAttacks;

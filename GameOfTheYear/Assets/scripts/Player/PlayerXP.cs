@@ -19,8 +19,6 @@ public class PlayerXP : MonoBehaviour
 
     [Header("Text fields")]
     [SerializeField]
-    private TMP_Text _xpText;
-    [SerializeField]
     private TMP_Text _levelText;
     [SerializeField]
     private TMP_Text _unusedPoints;
@@ -70,8 +68,6 @@ public class PlayerXP : MonoBehaviour
         _xpBar.maxValue = _xpToNextLevel;
         _xpBar.value = _currentXP;
         _levelText.text = "Level: " + _level;
-        //pro vypis xp zbyvajicí
-        _xpText.text = "xp: "+_currentXP + "/" + _xpToNextLevel;
         //pro vypis xp procentama
         //_xpText.text = "xp: "+ Math.Round((_currentXP*100/_xpToNextLevel),2)+"%";
         //takes care of showing if there are any unused scripts

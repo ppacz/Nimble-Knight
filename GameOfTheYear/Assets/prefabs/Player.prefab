@@ -223,7 +223,6 @@ MonoBehaviour:
   _level: 1
   _xpMultiplier: 2
   _skillPoints: 0
-  _xpText: {fileID: 0}
   _levelText: {fileID: 0}
   _unusedPoints: {fileID: 0}
   _xpBar: {fileID: 0}

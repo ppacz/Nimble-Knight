@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: -1296634798292072022}
   - component: {fileID: 1169717337}
   - component: {fileID: 3422317568071386325}
+  - component: {fileID: -3390172907043270393}
   m_Layer: 7
   m_Name: FlamyGuy
   m_TagString: Untagged
@@ -223,3 +224,16 @@ CircleCollider2D:
   m_Offset: {x: -0.014376789, y: 0.033545732}
   serializedVersion: 2
   m_Radius: 0.41373956
+--- !u!114 &-3390172907043270393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723323945482993783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c80ca4c570d3164e87f4260d2b2f458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 8300000, guid: 8b09c1ca822fede4499d3875dd4e725a, type: 3}
