@@ -7,6 +7,7 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] private AudioClip abilityUpgrade;
     [SerializeField] private AudioClip potionConsume;
     [SerializeField] private AudioClip walk;
+    [SerializeField] private float volume;
     private AudioSource source;
 
     private void Start()
@@ -15,31 +16,31 @@ public class PlayerSoundManager : MonoBehaviour
     }
     public void playAttack()
     {
-        source.volume = 1;
+        source.volume = volume;
         source.PlayOneShot(attack);
     }
 
     public void playLevelUp()
     {
-        source.volume = 1;
+        source.volume = volume;
         source.PlayOneShot(levelup);
     }
 
     public void playAbilityUpgrade()
     {
-        source.volume = 1;
+        source.volume = volume;
         source.PlayOneShot(abilityUpgrade);
     }
 
     public void playPotionConsume()
     {
-        source.volume = 1;
+        source.volume = volume;
         source.PlayOneShot(potionConsume);
     }
     
     public void playWalk()
     {
-        source.volume = 1;
+        source.volume = volume/2;
         source.PlayOneShot(walk);
     }
 
