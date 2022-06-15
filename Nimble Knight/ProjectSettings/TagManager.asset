@@ -60,3 +60,6 @@ TagManager:
   - name: PickUp
     uniqueID: 3328190911
     locked: 0
+  - name: campfire
+    uniqueID: 1865684445
+    locked: 0

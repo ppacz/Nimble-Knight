@@ -10,6 +10,7 @@ public class PlayerCombat : MonoBehaviour
     private Camera _cam;
     [SerializeField]
     private Transform _centerTransform;
+    private float timer;
 
     /// <summary>
     /// rotates hit area of player to the position of mouse
@@ -21,16 +22,19 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
+        timer -= Time.deltaTime;
         Vector3 _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 aimDirection = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         _centerTransform.eulerAngles = new Vector3(0, 0, angle);
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        {
-            Attack();
+        if (timer < 0) { 
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                Attack();
+            }
         }
 
-        
+
     }
 
     /// <summary>
@@ -46,6 +50,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("just attacked" + enemy.name + " for " + dmg);
         }
         gameObject.GetComponent<PlayerSoundManager>().playAttack();
+        timer = 0.20f;
     }
 
     void OnDrawGizmosSelected()

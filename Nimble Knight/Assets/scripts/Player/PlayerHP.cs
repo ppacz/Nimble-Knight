@@ -10,8 +10,10 @@ public class PlayerHP : MonoBehaviour
     public int maxHealth;
     public Slider slider;
     private int currentHealth;
-    private bool wasDamaged;
     public int regen = 1;
+    [Range(0f,1f)]
+    [SerializeField] private float alpha;
+    private Image panel;
 
     /// <summary>
     /// If save loads save
@@ -26,10 +28,10 @@ public class PlayerHP : MonoBehaviour
             maxHealth = player.maxHealth;
             currentHealth = player.currentHealth;
         }
-        wasDamaged = true;
         slider.maxValue = maxHealth;
         updateUI();
         InvokeRepeating("Heal", 0f, 3f);
+        panel = GameObject.Find("HitEffect").GetComponent<Image>();
     }
     /// <summary>
     /// loads death scene if player dies
@@ -37,6 +39,15 @@ public class PlayerHP : MonoBehaviour
     void Update()
     {   
         if (!alive) SceneManager.LoadScene("Death");
+    }
+
+    private void FixedUpdate()
+    {
+        if (panel.color.a > 0)
+        {
+            Debug.Log(panel.color.a);
+            panel.color = new Color(255, 0, 0, panel.color.a-0.01f);
+        }
     }
 
     /// <summary>
@@ -50,7 +61,7 @@ public class PlayerHP : MonoBehaviour
         {
             alive = false;
         }
-        wasDamaged = true;
+        panel.color = new Color(255, 0, 0, alpha);
         updateUI();
     }
 
@@ -69,7 +80,6 @@ public class PlayerHP : MonoBehaviour
             currentHealth += amount;
         }
         updateUI();
-        wasDamaged = true;
     }
     public void Heal()
     {
@@ -90,7 +100,6 @@ public class PlayerHP : MonoBehaviour
     private void updateUI()
     {
         HPtext.text = currentHealth + "/" + maxHealth;
-        wasDamaged = false;
         slider.value = currentHealth;
     }
 

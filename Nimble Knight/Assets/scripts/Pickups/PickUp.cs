@@ -9,6 +9,7 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            PlayerManager.instance.player.GetComponent<PlayerSoundManager>().playPotionConsume();
             PowerUpEffect.Apply(collision.gameObject);
             Destroy(gameObject);
         }

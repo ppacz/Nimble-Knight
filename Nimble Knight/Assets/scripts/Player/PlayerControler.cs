@@ -115,6 +115,7 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void Dash()
     {
+        
         if (skillsSet.getState("Dash") && PlayerManager.instance.player.GetComponent<PlayerStamina>().useAbility(10))
         {
             dashAmount = 5f;
@@ -130,6 +131,7 @@ public class PlayerControler : MonoBehaviour
             Debug.Log(centerOfHero);
             dashPosition = transform.position + lastDirection * dashAmount;
             rigidBody2D.MovePosition(dashPosition);
+            gameObject.GetComponent<PlayerSoundManager>().playDash();
             return;
 
         }
