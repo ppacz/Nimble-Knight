@@ -12,6 +12,9 @@ public class nextLevel : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<PlayerXP>().level()>=(newSceneIndex-1)*5)
             {
+                GameObject player = PlayerManager.instance.player;
+                player.GetComponent<Transform>().position = new Vector3(0f, 0f, 0f);
+                SaveSystem.SavePlayer(PlayerManager.instance.player);
                 SceneManager.LoadScene(newSceneIndex);
             }
             else

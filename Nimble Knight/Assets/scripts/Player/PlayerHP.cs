@@ -45,7 +45,6 @@ public class PlayerHP : MonoBehaviour
     {
         if (panel.color.a > 0)
         {
-            Debug.Log(panel.color.a);
             panel.color = new Color(255, 0, 0, panel.color.a-0.01f);
         }
     }
