@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: hellTileSetAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8143151066117881675, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 7557000791339540279, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -2819737773731996523, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -6146469051477367694, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -7482102105287886289, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 5594470521185535355, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 1352770147045338407, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -575913461007555753, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -6476119312543517086, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 6318328878757412973, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -1584108819796912533, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -2574932202419470138, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -3614954171519300243, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -494188299379952570, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -155805352968895521, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 988745809699981047, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 6864067420462349800, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 4841752968903268905, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -4561046663100403448, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 7908851437090207286, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 6806284859033692708, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 7868458807344447862, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -6516319763267858584, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 8419012515726473406, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -9216026744006037408, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -2047372483425641033, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -923499503202659698, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 3604497622296753629, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -6338421680443111210, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -661766990909252259, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -5187929357843284261, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -1665347748850729218, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: 7323611616016219642, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  - {fileID: -8304922160287779553, guid: 8a0ba7e6f360ebd4d8b6f6d879e0213a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - hell_29
+  - hell_28
+  - hell_30
+  - hell_31
+  - hell_32
+  - hell_33
+  - hell_23
+  - hell_22
+  - hell_18
+  - hell_21
+  - hell_19
+  - hell_20
+  - hell_16
+  - hell_27
+  - hell_17
+  - hell_26
+  - hell_14
+  - hell_25
+  - hell_15
+  - hell_24
+  - hell_12
+  - hell_13
+  - hell_10
+  - hell_11
+  - hell_9
+  - hell_8
+  - hell_3
+  - hell_2
+  - hell_1
+  - hell_0
+  - hell_7
+  - hell_6
+  - hell_5
+  - hell_4
+  m_RenderDataMap: {}
+  m_Tag: hellTileSetAtlas
+  m_IsVariant: 0
