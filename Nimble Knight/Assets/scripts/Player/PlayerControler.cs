@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -77,6 +77,11 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Dash();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SaveSystem.SavePlayer(gameObject);
+            SceneManager.LoadScene(0);
         }
         moveDirection = new Vector3(moveX, moveY).normalized;
     }

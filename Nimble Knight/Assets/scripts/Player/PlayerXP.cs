@@ -39,7 +39,11 @@ public class PlayerXP : MonoBehaviour
             _skillPoints = player.skillPoints;
         }
         updateUI();
-        
+        if (_level != 1)
+        {
+            GameObject controls = GameObject.Find("controls");
+            controls.SetActive(false);
+        }
     }
     /// <summary>
     /// adds exp after enemy is killed and if threshold is reached it will level up and work with exp as intended

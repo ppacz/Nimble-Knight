@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,15 +38,24 @@ public class PlayerHP : MonoBehaviour
     /// loads death scene if player dies
     /// </summary>
     void Update()
-    {   
-        if (!alive) SceneManager.LoadScene("Death");
+    {
+        if (maxHealth != slider.maxValue)
+        {
+            slider.maxValue = maxHealth;
+            updateUI();
+        }
+        if (!alive && panel.color.a>=1) SceneManager.LoadScene("Death");
     }
 
     private void FixedUpdate()
     {
-        if (panel.color.a > 0)
+        if (panel.color.a > 0 && alive)
         {
             panel.color = new Color(255, 0, 0, panel.color.a-0.01f);
+        }
+        if (!alive)
+        {
+            panel.color = new Color(0, 0, 0, panel.color.a + 0.01f);
         }
     }
 
@@ -59,6 +69,15 @@ public class PlayerHP : MonoBehaviour
         if (currentHealth <= 0)
         {
             alive = false;
+            System.Collections.Generic.List<GameObject> gui = new System.Collections.Generic.List<GameObject>();
+            for(int i =0;i< GameObject.Find("GUI").transform.childCount - 1; i++)
+            {
+                gui.Add(GameObject.Find("GUI").transform.GetChild(i + 1).gameObject);
+            }
+            foreach(GameObject guipart in gui)
+            {
+                guipart.SetActive(false);
+            }
         }
         panel.color = new Color(255, 0, 0, alpha);
         updateUI();

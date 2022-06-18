@@ -23,7 +23,6 @@ public class EnemyHP : MonoBehaviour
     public void getsDamaged(int dmg)
     {
         currentHealth -= dmg;
-
         if (currentHealth <= 0)
         {
             Death();

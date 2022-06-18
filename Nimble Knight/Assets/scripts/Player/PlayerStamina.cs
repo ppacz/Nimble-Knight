@@ -28,6 +28,14 @@ public class PlayerStamina : MonoBehaviour
         regen = 1;
         InvokeRepeating("AddStamina", 0f, 5f);
     }
+    private void Update()
+    {
+        if (maxStamina != slider.maxValue)
+        {
+            slider.maxValue = maxStamina;
+            UpdateUI();
+        }
+    }
     /// <summary>
     /// refueling stamina
     /// </summary>
