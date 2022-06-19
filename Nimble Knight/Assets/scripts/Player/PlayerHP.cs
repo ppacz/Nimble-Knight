@@ -81,6 +81,7 @@ public class PlayerHP : MonoBehaviour
         }
         panel.color = new Color(255, 0, 0, alpha);
         updateUI();
+        
     }
 
     /// <summary>

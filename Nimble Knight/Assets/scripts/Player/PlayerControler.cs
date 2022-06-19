@@ -42,6 +42,7 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (!gameObject.GetComponent<PlayerHP>().alive) return;
         isWalking = false;
         moveX = 0f;
         moveY = 0f;
@@ -91,6 +92,7 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (!gameObject.GetComponent<PlayerHP>().alive) return;
         rigidBody2D.velocity = 4 * MOVEMENTSPEED * Time.deltaTime * moveDirection;
         if(moveDirection!=new Vector3(0, 0))
         {
@@ -153,7 +155,7 @@ public class PlayerControler : MonoBehaviour
         gameObject.GetComponent<PlayerSoundManager>().playAbilityUpgrade();
         Debug.Log("works");
         if (skill=="Dash") return;
-        else if (skill == "Damage") GetComponent<PlayerCombat>().dmg+=10;
+        else if (skill == "Damage") GetComponent<PlayerCombat>().dmg+=5;
         else if (skill == "Health regeneration") GetComponent<PlayerHP>().regen +=2 ;
         else if (skill == "Max health")GetComponent<PlayerHP>().maxHealth += 50;
         else if (skill == "Max stamina") GetComponent<PlayerStamina>().maxStamina += 30;

@@ -87,6 +87,7 @@ public class EnemyAIRanged : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (!PlayerManager.instance.player.GetComponent<PlayerHP>().alive) return;
         if (ableToMove > Time.time) return;
         getDistance();
         if (path == null) return;

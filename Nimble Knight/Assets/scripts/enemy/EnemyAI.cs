@@ -82,6 +82,7 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        if (!player.GetComponent<PlayerHP>().alive) return;
         if (ableToMove > Time.time)return;
         getDistance();
         if (path == null) return;
