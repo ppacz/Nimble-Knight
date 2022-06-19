@@ -1910,7 +1910,7 @@ MonoBehaviour:
     P - Save Game
 
     Esc
-    - Save & exit to menu'
+    - Save & Exit to Menu'
 --- !u!222 &1199088585
 CanvasRenderer:
   m_ObjectHideFlags: 0
