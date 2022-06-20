@@ -11,6 +11,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private Transform _centerTransform;
     private float timer;
+    [SerializeField]
+    private Animator attackAnimator;
 
     /// <summary>
     /// rotates hit area of player to the position of mouse
@@ -28,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         _centerTransform.eulerAngles = new Vector3(0, 0, angle);
         if (timer < 0) { 
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<PlayerControler>().canAttack)
             {
                 Attack();
             }
@@ -51,11 +53,11 @@ public class PlayerCombat : MonoBehaviour
         }
         gameObject.GetComponent<PlayerSoundManager>().playAttack();
         timer = 0.20f;
+        attackAnimator.Play("attackAnim");
     }
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

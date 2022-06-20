@@ -139,6 +139,7 @@ public class EnemyAIRanged : MonoBehaviour
                 shot.GetComponent<Projectile>().setDmg(dmg);
                 nextAttack = Time.time + attackSpeed;
                 ableToMove = Time.time + recoveryFromAttacks;
+                gameObject.GetComponent<SoundManager>().playAttackSound();
             }
         }
     }

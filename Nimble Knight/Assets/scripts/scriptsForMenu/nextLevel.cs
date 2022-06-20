@@ -20,7 +20,7 @@ public class nextLevel : MonoBehaviour
             else
             {
                 colorTimer = 3;
-                GameObject.Find("popUpText").GetComponent<popUp>().textPop("Potøebuješ vyšší level");
+                GameObject.Find("popUpText").GetComponent<popUp>().textPop("You need level 5!");
             }
         }
     }

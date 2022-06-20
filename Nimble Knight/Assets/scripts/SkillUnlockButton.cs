@@ -95,7 +95,7 @@ public class SkillUnlockButton : MonoBehaviour
                 skillsSet.unlockSkill(skillName);
                 return true;
             }
-        GameObject.Find("popUpText").GetComponent<popUp>().textPop("Nedostatek bodù");
+        GameObject.Find("popUpText").GetComponent<popUp>().textPop("Not enough skill points");
         Debug.Log("Není možné skill odemknout");
         return false;
     }

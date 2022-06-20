@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1169717337}
   - component: {fileID: 3422317568071386325}
   - component: {fileID: -3390172907043270393}
+  - component: {fileID: 8980635202724941777}
   m_Layer: 7
   m_Name: FlamyGuy
   m_TagString: Untagged
@@ -237,3 +238,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 8300000, guid: 8b09c1ca822fede4499d3875dd4e725a, type: 3}
+--- !u!95 &8980635202724941777
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723323945482993783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1aea8e218035d454fa36e7b870a020a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

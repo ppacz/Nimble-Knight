@@ -15,13 +15,15 @@ public class PlayerControler : MonoBehaviour
     private SkillUnlocking skillsSet;
     private Animator animator;
     private bool isWalking;
+    public bool canAttack;
     
     
     /// <summary>
     /// sets skill if there are none and thase needed references
     /// </summary>
     private void Start()
-    {   
+    {
+        canAttack = true;
         skillsSet = gameObject.GetComponent<SkillUnlocking>();
         skillsSet.setSkills("Dash");
         skillsSet.setSkills("Damage");
@@ -42,49 +44,56 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (!gameObject.GetComponent<PlayerHP>().alive) return;
-        isWalking = false;
-        moveX = 0f;
-        moveY = 0f;
-        if (Input.GetKey(KeyCode.W))
+        if (gameObject.GetComponent<PlayerHP>().alive)
         {
-            moveY = 1;
-            isWalking = true;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveY = -1f;
-            isWalking = true;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveX = -1f;
-            isWalking = true;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveX = 1f;
-            isWalking = true;
-        }
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            PlayerManager.instance.skillTree.SetActive(!PlayerManager.instance.skillTree.activeSelf);
-        }
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            SaveSystem.SavePlayer(gameObject);
-        }
+            isWalking = false;
+            moveX = 0f;
+            moveY = 0f;
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveY = 1;
+                isWalking = true;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveY = -1f;
+                isWalking = true;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveX = -1f;
+                isWalking = true;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveX = 1f;
+                isWalking = true;
+            }
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                canAttack = !canAttack;
+                PlayerManager.instance.skillTree.SetActive(!PlayerManager.instance.skillTree.activeSelf);
+            }
+            if (Input.GetKeyUp(KeyCode.P))
+            {
+                SaveSystem.SavePlayer(gameObject);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Dash();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Dash();
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SaveSystem.SavePlayer(gameObject);
+                SceneManager.LoadScene(0);
+            }
+            moveDirection = new Vector3(moveX, moveY).normalized;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else
         {
-            SaveSystem.SavePlayer(gameObject);
-            SceneManager.LoadScene(0);
+            rigidBody2D.velocity = new Vector2(0, 0);
         }
-        moveDirection = new Vector3(moveX, moveY).normalized;
     }
 
     /// <summary>
@@ -92,29 +101,31 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (!gameObject.GetComponent<PlayerHP>().alive) return;
-        rigidBody2D.velocity = 4 * MOVEMENTSPEED * Time.deltaTime * moveDirection;
-        if(moveDirection!=new Vector3(0, 0))
+        if (gameObject.GetComponent<PlayerHP>().alive)
         {
-            lastDirection = moveDirection;
-        }
-        if (moveDirection.x != 0f)
-        {
-            animator.SetFloat("horizontalMovement", moveDirection.x);
-        }
-        if (moveDirection.x == 0)
-        {
-            animator.SetFloat("horizontalMovementLast", lastDirection.x);
-        }
-        if (rigidBody2D.velocity != new Vector2(0, 0)) animator.SetBool("isMoving", true);
-        else animator.SetBool("isMoving", false);
-        if(!gameObject.GetComponent<AudioSource>().isPlaying && isWalking)
-        {
-            gameObject.GetComponent<PlayerSoundManager>().playWalk();
-        }
-        if(!isWalking)
-        {
-            gameObject.GetComponent<AudioSource>().volume = 0;
+            rigidBody2D.velocity = 4 * MOVEMENTSPEED * Time.deltaTime * moveDirection;
+            if (moveDirection != new Vector3(0, 0))
+            {
+                lastDirection = moveDirection;
+            }
+            if (moveDirection.x != 0f)
+            {
+                animator.SetFloat("horizontalMovement", moveDirection.x);
+            }
+            if (moveDirection.x == 0)
+            {
+                animator.SetFloat("horizontalMovementLast", lastDirection.x);
+            }
+            if (rigidBody2D.velocity != new Vector2(0, 0)) animator.SetBool("isMoving", true);
+            else animator.SetBool("isMoving", false);
+            if (!gameObject.GetComponent<AudioSource>().isPlaying && isWalking)
+            {
+                gameObject.GetComponent<PlayerSoundManager>().playWalk();
+            }
+            if (!isWalking)
+            {
+                gameObject.GetComponent<AudioSource>().volume = 0;
+            }
         }
     }
     /// <summary>

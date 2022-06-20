@@ -36,5 +36,10 @@ public class EnemyHP : MonoBehaviour
     {
         PlayerManager.instance.player.GetComponent<PlayerXP>().addExp(_XP);
         Debug.Log(_nameOfEnemy + " died!");
+        if(name == "FlameGuy")
+        {
+            GameObject.Find("popUpText").GetComponent<popUp>().textPop("By killing FlameGuy you've just finished the game. Congratulations!!!!!!");
+            Destroy(gameObject);
+        }
     }
 }   
