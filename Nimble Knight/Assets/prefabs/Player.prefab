@@ -229,9 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentXP: 0
-  _xpToNextLevel: 10
+  _xpToNextLevel: 20
   _level: 1
-  _xpMultiplier: 2
+  _xpMultiplier: 1.5
   _skillPoints: 0
   _levelText: {fileID: 0}
   _unusedPoints: {fileID: 0}

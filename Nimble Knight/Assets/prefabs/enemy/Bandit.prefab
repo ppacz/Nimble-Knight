@@ -174,9 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73245438e5759c743bb0ff970a6b7e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealt: 25
+  maxHealt: 40
   _nameOfEnemy: Bandit
-  _XP: 15
+  _XP: 10
   isAlive: 1
 --- !u!61 &-5764557635068512599
 BoxCollider2D:
