@@ -1,5 +1,5 @@
 using UnityEngine;
-using Pathfinding;
+//using Pathfinding;
 
 public class EnemyAIRanged : MonoBehaviour
 {
@@ -10,8 +10,8 @@ public class EnemyAIRanged : MonoBehaviour
     [SerializeField]
     [Range(50,150)]
     private float speed;
-    [SerializeField]
-    private float nextWaypointDistance = 3;
+    //[SerializeField]
+    //private float nextWaypointDistance = 3;
     [SerializeField]
     [Range(0, 50)]
     private float followRange;
@@ -40,9 +40,9 @@ public class EnemyAIRanged : MonoBehaviour
     private float lastX;
 
     private GameObject center;
-    private Seeker seeker;
+    //private Seeker seeker;
     private Rigidbody2D rb;
-    private Path path;
+    //private Path path;
     private Transform target;
     private Animator animator;
    
@@ -58,16 +58,16 @@ public class EnemyAIRanged : MonoBehaviour
         nextAttack = Time.time;
         center = PlayerManager.instance.center;
         target = center.GetComponent<Transform>();
-        seeker = GetComponent<Seeker>();
+        //seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        //InvokeRepeating("UpdatePath", 0f, .5f);
 
     }
     /// <summary>
     /// updates path every .5 sec
     /// </summary>
-    private void UpdatePath()
+    /*private void UpdatePath()
     {
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -79,7 +79,7 @@ public class EnemyAIRanged : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
-    }
+    }*/
 
     // Update is called once per frame
     /// <summary>
@@ -90,7 +90,7 @@ public class EnemyAIRanged : MonoBehaviour
         if (!PlayerManager.instance.player.GetComponent<PlayerHP>().alive) return;
         if (ableToMove > Time.time) return;
         getDistance();
-        if (path == null) return;
+        //if (path == null) return;
         if (distanceFromPlayer > followRange)
         {
             rb.velocity = new Vector2(0, 0);
@@ -99,7 +99,7 @@ public class EnemyAIRanged : MonoBehaviour
         else if (!canHit() && distanceFromPlayer < followRange)
         {
             animator.SetBool("isMoving", true);
-            if (currentWaypoint >= path.vectorPath.Count)
+            /*if (currentWaypoint >= path.vectorPath.Count)
             {
                 reachedEndOfPath = true;
                 return;
@@ -107,9 +107,10 @@ public class EnemyAIRanged : MonoBehaviour
             else
             {
                 reachedEndOfPath = false;
-            }
-            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Debug.Log(rb.position.x - target.transform.position.x);
+            }*/
+            //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 direction = new Vector2((target.transform.position.x - gameObject.transform.position.x), (target.transform.position.y - gameObject.transform.position.y)).normalized;
+            //Debug.Log(rb.position.x - target.transform.position.x);
             if ((rb.position.x - target.transform.position.x) < 0f)
             {
                 animator.SetFloat("horizontalMovement", .5f);
@@ -125,11 +126,12 @@ public class EnemyAIRanged : MonoBehaviour
             }
             Vector2 force = direction * speed * 4 * Time.deltaTime;
             rb.AddForce(force);
+            /*
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
             if (distance < nextWaypointDistance)
             {
                 currentWaypoint++;
-            }
+            }*/
         }
         else
         {

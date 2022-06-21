@@ -16,7 +16,7 @@ public class blackIntro : MonoBehaviour
     {
         if (!done)
         {
-            panel.color = new Color(0, 0, 0, panel.color.a - 0.005f);
+            panel.color = new Color(0, 0, 0, panel.color.a - 0.01f);
             if (panel.color.a <= 0) Destroy(gameObject);
         }
     }

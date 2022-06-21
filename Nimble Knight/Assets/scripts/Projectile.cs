@@ -61,9 +61,5 @@ public class Projectile : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerHP>().Damaged(dmg);
             Destroy(gameObject);
         }
-        else if(collision.gameObject.tag == "Obstacle")
-        {
-            Destroy(gameObject);
-        }
     }
 }

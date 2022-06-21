@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
     private Camera _cam;
     [SerializeField]
     private Transform _centerTransform;
-    private float timer;
+    private double timer;
     [SerializeField]
     private Animator attackAnimator;
 
@@ -24,19 +24,17 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        timer -= Time.deltaTime;
         Vector3 _mousePos = _cam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 aimDirection = (_mousePos - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         _centerTransform.eulerAngles = new Vector3(0, 0, angle);
-        if (timer < 0) { 
+        if (timer < Time.time)
+        {
             if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<PlayerControler>().canAttack)
             {
                 Attack();
             }
         }
-
-
     }
 
     /// <summary>
@@ -52,8 +50,8 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("just attacked" + enemy.name + " for " + dmg);
         }
         gameObject.GetComponent<PlayerSoundManager>().playAttack();
-        timer = 0.20f;
         attackAnimator.Play("attackAnim");
+        timer = Time.time + 0.40f;
     }
 
     void OnDrawGizmosSelected()
