@@ -201,7 +201,7 @@ MonoBehaviour:
   speed: 60
   nextWaypointDistance: 3
   followRange: 20
-  attackSpeed: 5
+  attackSpeed: 2
   range: 20
   enemyCenter: {fileID: 1855610240}
   projectile: {fileID: 3257218650976838610, guid: 64ebd9126f4fdc84f81827e7dc9dae44,

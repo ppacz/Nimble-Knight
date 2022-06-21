@@ -163,7 +163,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  dmg: 20
+  dmg: 15
   _cam: {fileID: 0}
   _centerTransform: {fileID: 5648883723398660142}
   attackAnimator: {fileID: 1000280270767350070}
